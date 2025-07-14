@@ -1,0 +1,325 @@
+{
+  "carData": {
+    "makes": [
+      "Acura",
+      "Alfa Romeo",
+      "Aston Martin",
+      "Audi",
+      "Bentley",
+      "BMW",
+      "Buick",
+      "Cadillac",
+      "Chevrolet",
+      "Chrysler",
+      "Dodge",
+      "Ferrari",
+      "Fiat",
+      "Ford",
+      "Genesis",
+      "GMC",
+      "Honda",
+      "Hyundai",
+      "Infiniti",
+      "Jaguar",
+      "Jeep",
+      "Kia",
+      "Lamborghini",
+      "Land Rover",
+      "Lexus",
+      "Lincoln",
+      "Maserati",
+      "Mazda",
+      "McLaren",
+      "Mercedes-Benz",
+      "MINI",
+      "Mitsubishi",
+      "Nissan",
+      "Porsche",
+      "Ram",
+      "Rolls-Royce",
+      "Subaru",
+      "Tesla",
+      "Toyota",
+      "Volkswagen",
+      "Volvo"
+    ],
+    "years": [
+      "2025", "2024", "2023", "2022", "2021", "2020",
+      "2019", "2018", "2017", "2016", "2015", "2014",
+      "2013", "2012", "2011", "2010", "2009", "2008",
+      "2007", "2006", "2005", "2004", "2003", "2002",
+      "2001", "2000", "1999", "1998", "1997", "1996",
+      "1995", "1994", "1993", "1992", "1991", "1990",
+      "1989", "1988", "1987", "1986", "1985", "1984",
+      "1983", "1982", "1981", "1980", "Before 1980"
+    ],
+    "models": {
+      "Acura": [
+        "ILX", "Integra", "MDX", "NSX", "RDX", "RLX", "TL", "TLX", "TSX", "ZDX"
+      ],
+      "Alfa Romeo": [
+        "4C", "Giulia", "Giulietta", "Stelvio", "Tonale"
+      ],
+      "Aston Martin": [
+        "DB11", "DB12", "DBS", "DBX", "Rapide", "Vanquish", "Vantage"
+      ],
+      "Audi": [
+        "A3", "A4", "A5", "A6", "A7", "A8", "e-tron", "Q3", "Q4 e-tron", "Q5", "Q7", "Q8", "R8", "RS3", "RS4", "RS5", "RS6", "RS7", "S3", "S4", "S5", "S6", "S7", "S8", "SQ5", "SQ7", "SQ8", "TT"
+      ],
+      "Bentley": [
+        "Bentayga", "Continental", "Flying Spur", "Mulsanne"
+      ],
+      "BMW": [
+        "1 Series", "2 Series", "3 Series", "4 Series", "5 Series", "6 Series", "7 Series", "8 Series", "i3", "i4", "i7", "iX", "M2", "M3", "M4", "M5", "M8", "X1", "X2", "X3", "X4", "X5", "X6", "X7", "XM", "Z4"
+      ],
+      "Buick": [
+        "Enclave", "Encore", "Encore GX", "Envision", "LaCrosse", "Regal", "Verano"
+      ],
+      "Cadillac": [
+        "ATS", "CT4", "CT5", "CT6", "CTS", "Escalade", "ELR", "LYRIQ", "SRX", "STS", "XT4", "XT5", "XT6", "XTS"
+      ],
+      "Chevrolet": [
+        "Blazer", "Bolt EV", "Bolt EUV", "Camaro", "Colorado", "Corvette", "Cruze", "Equinox", "Express", "Impala", "Malibu", "Silverado 1500", "Silverado 2500HD", "Silverado 3500HD", "Sonic", "Spark", "Suburban", "Tahoe", "Traverse", "Trax", "Volt"
+      ],
+      "Chrysler": [
+        "200", "300", "Pacifica", "Voyager"
+      ],
+      "Dodge": [
+        "Challenger", "Charger", "Dart", "Durango", "Grand Caravan", "Journey", "Ram 1500", "Ram 2500", "Ram 3500"
+      ],
+      "Ferrari": [
+        "296 GTB", "488", "812", "F8", "LaFerrari", "Portofino", "Roma", "SF90"
+      ],
+      "Fiat": [
+        "124 Spider", "500", "500L", "500X"
+      ],
+      "Ford": [
+        "Bronco", "Bronco Sport", "EcoSport", "Edge", "Escape", "Expedition", "Explorer", "F-150", "F-250", "F-350", "Fiesta", "Flex", "Focus", "Fusion", "GT", "Maverick", "Mustang", "Mustang Mach-E", "Ranger", "Taurus", "Transit"
+      ],
+      "Genesis": [
+        "G70", "G80", "G90", "GV60", "GV70", "GV80"
+      ],
+      "GMC": [
+        "Acadia", "Canyon", "Hummer EV", "Sierra 1500", "Sierra 2500HD", "Sierra 3500HD", "Terrain", "Yukon", "Yukon XL"
+      ],
+      "Honda": [
+        "Accord", "Civic", "Clarity", "CR-V", "CR-Z", "Element", "Fit", "HR-V", "Insight", "Odyssey", "Passport", "Pilot", "Ridgeline"
+      ],
+      "Hyundai": [
+        "Accent", "Azera", "Elantra", "Genesis", "IONIQ 5", "IONIQ 6", "Kona", "Nexo", "Palisade", "Santa Cruz", "Santa Fe", "Sonata", "Tucson", "Veloster", "Venue"
+      ],
+      "Infiniti": [
+        "Q50", "Q60", "Q70", "QX30", "QX50", "QX60", "QX70", "QX80"
+      ],
+      "Jaguar": [
+        "E-PACE", "F-PACE", "F-TYPE", "I-PACE", "XE", "XF", "XJ"
+      ],
+      "Jeep": [
+        "Cherokee", "Compass", "Gladiator", "Grand Cherokee", "Grand Cherokee L", "Patriot", "Renegade", "Wagoneer", "Wrangler"
+      ],
+      "Kia": [
+        "Cadenza", "Carnival", "EV6", "Forte", "K5", "Niro", "Optima", "Rio", "Sedona", "Seltos", "Sorento", "Soul", "Sportage", "Stinger", "Telluride"
+      ],
+      "Lamborghini": [
+        "Aventador", "Gallardo", "Huracan", "Revuelto", "Urus"
+      ],
+      "Land Rover": [
+        "Defender", "Discovery", "Discovery Sport", "Range Rover", "Range Rover Evoque", "Range Rover Sport", "Range Rover Velar"
+      ],
+      "Lexus": [
+        "CT", "ES", "GS", "GX", "IS", "LC", "LS", "LX", "NX", "RC", "RX", "UX"
+      ],
+      "Lincoln": [
+        "Aviator", "Continental", "Corsair", "MKC", "MKS", "MKT", "MKX", "MKZ", "Navigator", "Nautilus"
+      ],
+      "Maserati": [
+        "Ghibli", "GranTurismo", "Levante", "MC20", "Quattroporte"
+      ],
+      "Mazda": [
+        "CX-3", "CX-30", "CX-5", "CX-9", "CX-90", "Mazda3", "Mazda6", "MX-5 Miata", "MX-30"
+      ],
+      "McLaren": [
+        "570S", "600LT", "720S", "750S", "Artura", "GT"
+      ],
+      "Mercedes-Benz": [
+        "A-Class", "AMG GT", "B-Class", "C-Class", "CLA", "CLS", "E-Class", "EQB", "EQC", "EQE", "EQS", "G-Class", "GLA", "GLB", "GLC", "GLE", "GLS", "Maybach", "S-Class", "SL", "SLC", "Sprinter"
+      ],
+      "MINI": [
+        "Clubman", "Convertible", "Cooper", "Countryman", "Electric", "Hardtop"
+      ],
+      "Mitsubishi": [
+        "Eclipse Cross", "Lancer", "Mirage", "Outlander", "Outlander Sport"
+      ],
+      "Nissan": [
+        "370Z", "Altima", "Armada", "Ariya", "Frontier", "GT-R", "Kicks", "Leaf", "Maxima", "Murano", "NV200", "Pathfinder", "Rogue", "Sentra", "Titan", "Versa", "Z"
+      ],
+      "Porsche": [
+        "718 Boxster", "718 Cayman", "911", "Cayenne", "Macan", "Panamera", "Taycan"
+      ],
+      "Ram": [
+        "1500", "2500", "3500", "ProMaster", "ProMaster City"
+      ],
+      "Rolls-Royce": [
+        "Cullinan", "Dawn", "Ghost", "Phantom", "Wraith"
+      ],
+      "Subaru": [
+        "Ascent", "BRZ", "Crosstrek", "Forester", "Impreza", "Legacy", "Outback", "Solterra", "WRX"
+      ],
+      "Tesla": [
+        "Cybertruck", "Model 3", "Model S", "Model X", "Model Y", "Roadster"
+      ],
+      "Toyota": [
+        "4Runner", "86", "Avalon", "bZ4X", "C-HR", "Camry", "Corolla", "Corolla Cross", "Crown", "GR86", "GR Supra", "Highlander", "Land Cruiser", "Mirai", "Prius", "RAV4", "Sequoia", "Sienna", "Tacoma", "Tundra", "Venza", "Yaris"
+      ],
+      "Volkswagen": [
+        "Arteon", "Atlas", "Atlas Cross Sport", "Beetle", "CC", "Golf", "ID.4", "Jetta", "Passat", "Tiguan", "Touareg"
+      ],
+      "Volvo": [
+        "C30", "C40", "S60", "S90", "V60", "V90", "XC40", "XC60", "XC90"
+      ]
+    },
+    "bodyTypes": [
+      "Convertible",
+      "Coupe",
+      "Hatchback",
+      "Pickup Truck",
+      "Sedan",
+      "SUV",
+      "Van/Minivan",
+      "Wagon"
+    ],
+    "fuelTypes": [
+      "Electric",
+      "Gas",
+      "Hybrid",
+      "Plug-in Hybrid"
+    ],
+    "transmissionTypes": [
+      "Automatic",
+      "CVT",
+      "Manual"
+    ],
+    "driveTypes": [
+      "AWD (All-Wheel Drive)",
+      "FWD (Front-Wheel Drive)",
+      "RWD (Rear-Wheel Drive)"
+    ],
+    "engineSizes": [
+      "1.0L - 1.5L",
+      "1.6L - 2.0L",
+      "2.1L - 2.5L",
+      "2.6L - 3.0L",
+      "3.1L - 3.5L",
+      "3.6L - 4.0L",
+      "4.1L - 5.0L",
+      "5.1L - 6.0L",
+      "6.1L+",
+      "Electric Motor",
+      "Hybrid System"
+    ],
+    "mileageRanges": [
+      "0 - 25,000 miles",
+      "25,001 - 50,000 miles",
+      "50,001 - 75,000 miles",
+      "75,001 - 100,000 miles",
+      "100,001 - 150,000 miles",
+      "150,001 - 200,000 miles",
+      "200,001+ miles"
+    ],
+    "popularCombinations": [
+      {
+        "make": "Toyota",
+        "model": "Camry",
+        "years": ["2024", "2023", "2022", "2021", "2020"]
+      },
+      {
+        "make": "Honda",
+        "model": "Civic",
+        "years": ["2024", "2023", "2022", "2021", "2020"]
+      },
+      {
+        "make": "Honda",
+        "model": "Accord",
+        "years": ["2024", "2023", "2022", "2021", "2020"]
+      },
+      {
+        "make": "Toyota",
+        "model": "Corolla",
+        "years": ["2024", "2023", "2022", "2021", "2020"]
+      },
+      {
+        "make": "Honda",
+        "model": "CR-V",
+        "years": ["2024", "2023", "2022", "2021", "2020"]
+      },
+      {
+        "make": "Toyota",
+        "model": "RAV4",
+        "years": ["2024", "2023", "2022", "2021", "2020"]
+      },
+      {
+        "make": "Chevrolet",
+        "model": "Silverado 1500",
+        "years": ["2024", "2023", "2022", "2021", "2020"]
+      },
+      {
+        "make": "Ford",
+        "model": "F-150",
+        "years": ["2024", "2023", "2022", "2021", "2020"]
+      },
+      {
+        "make": "Nissan",
+        "model": "Altima",
+        "years": ["2024", "2023", "2022", "2021", "2020"]
+      },
+      {
+        "make": "Toyota",
+        "model": "Highlander",
+        "years": ["2024", "2023", "2022", "2021", "2020"]
+      }
+    ],
+    "searchHelpers": {
+      "makeAliases": {
+        "Benz": "Mercedes-Benz",
+        "Mercedes": "Mercedes-Benz",
+        "Chevy": "Chevrolet",
+        "VW": "Volkswagen",
+        "Beemer": "BMW",
+        "Bimmer": "BMW",
+        "Caddy": "Cadillac",
+        "Merc": "Mercedes-Benz"
+      },
+      "popularSearches": [
+        "Toyota Camry",
+        "Honda Civic",
+        "Honda Accord",
+        "Toyota Corolla",
+        "Honda CR-V",
+        "Toyota RAV4",
+        "Ford F-150",
+        "Chevrolet Silverado",
+        "Nissan Altima",
+        "BMW 3 Series",
+        "Mercedes C-Class",
+        "Audi A4",
+        "Lexus RX",
+        "Tesla Model 3",
+        "Tesla Model Y"
+      ]
+    },
+    "serviceIntervals": {
+      "basicMaintenance": {
+        "oilChange": "Every 3,000-7,500 miles",
+        "tireRotation": "Every 5,000-8,000 miles",
+        "airFilter": "Every 12,000-15,000 miles",
+        "cabinFilter": "Every 12,000-15,000 miles"
+      },
+      "majorServices": {
+        "brakeInspection": "Every 10,000-15,000 miles",
+        "transmissionService": "Every 30,000-60,000 miles",
+        "coolantFlush": "Every 30,000-50,000 miles",
+        "sparkPlugs": "Every 30,000-100,000 miles"
+      }
+    }
+  }
+}

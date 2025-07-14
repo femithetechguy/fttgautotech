@@ -1,0 +1,189 @@
+<!-- Google Analytics 4 - Replace GA_MEASUREMENT_ID with your actual ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GA_MEASUREMENT_ID', {
+    page_title: document.title,
+    page_location: window.location.href,
+    send_page_view: true
+  });
+
+  // Track form submissions
+  function trackFormSubmission(formType) {
+    gtag('event', 'form_submit', {
+      event_category: 'engagement',
+      event_label: formType,
+      value: 1
+    });
+  }
+
+  // Track phone clicks
+  function trackPhoneClick() {
+    gtag('event', 'phone_click', {
+      event_category: 'contact',
+      event_label: 'phone_number',
+      value: 1
+    });
+  }
+
+  // Track service selections
+  function trackServiceSelection(service) {
+    gtag('event', 'service_selection', {
+      event_category: 'engagement',
+      event_label: service,
+      value: 1
+    });
+  }
+</script>
+
+<!-- Google Tag Manager (optional) - Replace GTM-XXXXXXX with your container ID -->
+<!--
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+-->
+
+<!-- Schema.org Local Business Structured Data (Enhanced) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "FTTG AutoTech",
+  "description": "Professional auto repair and mobile car service in Metro Atlanta with ASE certified technicians, transparent pricing, and quality warranties.",
+  "image": [
+    "https://fttgautotech.com/images/logo.png",
+    "https://fttgautotech.com/images/shop-exterior.jpg",
+    "https://fttgautotech.com/images/mobile-service.jpg"
+  ],
+  "url": "https://fttgautotech.com",
+  "telephone": "111-222-3333",
+  "email": "contact@fttgautotech.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "GA",
+    "addressCountry": "US",
+    "addressLocality": "Atlanta",
+    "postalCode": "30309"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "33.7490",
+    "longitude": "-84.3880"
+  },
+  "openingHours": [
+    "Mo-Fr 08:00-18:00",
+    "Sa 08:00-16:00"
+  ],
+  "priceRange": "$$",
+  "paymentAccepted": ["Cash", "Credit Card", "Check"],
+  "currenciesAccepted": "USD",
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "33.7490",
+      "longitude": "-84.3880"
+    },
+    "geoRadius": "25000"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Auto Repair Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Oil Change Service",
+          "description": "Professional oil change with quality oil and filter replacement",
+          "provider": {
+            "@type": "AutoRepair",
+            "name": "FTTG AutoTech"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Brake Repair & Maintenance",
+          "description": "Complete brake system inspection, repair, and maintenance services",
+          "provider": {
+            "@type": "AutoRepair",
+            "name": "FTTG AutoTech"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Engine Diagnostics",
+          "description": "Advanced computer diagnostics to identify and resolve engine issues",
+          "provider": {
+            "@type": "AutoRepair",
+            "name": "FTTG AutoTech"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Mobile Auto Service",
+          "description": "Convenient mobile auto repair and maintenance at your location",
+          "provider": {
+            "@type": "AutoRepair",
+            "name": "FTTG AutoTech"
+          }
+        }
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "150",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "John D."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "Excellent service and fair pricing. They fixed my brake issue quickly and professionally. Highly recommend!"
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Sarah M."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "Love their mobile service! They came to my office and changed my oil while I worked. So convenient!"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/FTTGAutoTech",
+    "https://www.instagram.com/fttgautotech",
+    "https://www.linkedin.com/company/fttgautotech"
+  ]
+}
+</script>

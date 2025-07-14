@@ -3,7 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FTTG AutoTech - Loading...</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>FTTG AutoTech - Professional Auto Repair & Mobile Service in Metro Atlanta</title>
+    <meta name="description" content="FTTG AutoTech offers professional auto repair, mobile car service, brake repair, oil changes, and engine diagnostics in Metro Atlanta. ASE certified technicians with transparent pricing and warranties.">
+    <meta name="keywords" content="auto repair Atlanta, mobile car service, brake repair, oil change, engine diagnostics, ASE certified mechanic, car maintenance Atlanta, automotive service, mobile mechanic Atlanta">
+    <meta name="author" content="FTTG AutoTech">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FTTG AutoTech - Professional Auto Repair & Mobile Service">
+    <meta property="og:description" content="Expert auto repair and mobile car service in Metro Atlanta. ASE certified technicians, transparent pricing, and quality guaranteed.">
+    <meta property="og:image" content="https://fttgautotech.com/images/og-image.jpg">
+    <meta property="og:url" content="https://fttgautotech.com">
+    <meta property="og:site_name" content="FTTG AutoTech">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FTTG AutoTech - Professional Auto Repair & Mobile Service">
+    <meta name="twitter:description" content="Expert auto repair and mobile car service in Metro Atlanta. ASE certified technicians, transparent pricing, and quality guaranteed.">
+    <meta name="twitter:image" content="https://fttgautotech.com/images/twitter-card.jpg">
+    <meta name="twitter:site" content="@FTTGAutoTech">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://fttgautotech.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#1D2A35">
+    <meta name="msapplication-TileColor" content="#1D2A35">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +57,104 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="css/booking.css">
     <link rel="stylesheet" href="css/mobile.css">
+    
+    <!-- JavaScript -->
+    <script src="js/seo.js"></script>
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AutoRepair",
+        "name": "FTTG AutoTech",
+        "description": "Professional auto repair and mobile car service in Metro Atlanta with ASE certified technicians.",
+        "image": "https://fttgautotech.com/images/logo.png",
+        "url": "https://fttgautotech.com",
+        "telephone": "111-222-3333",
+        "email": "contact@fttgautotech.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "GA",
+            "addressCountry": "US",
+            "addressLocality": "Atlanta"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "33.7490",
+            "longitude": "-84.3880"
+        },
+        "openingHours": [
+            "Mo-Fr 08:00-18:00",
+            "Sa 08:00-16:00"
+        ],
+        "priceRange": "$$",
+        "paymentAccepted": ["Cash", "Credit Card"],
+        "currenciesAccepted": "USD",
+        "serviceArea": {
+            "@type": "City",
+            "name": "Atlanta"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Auto Repair Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Oil Change",
+                        "description": "Professional oil change service"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Brake Repair",
+                        "description": "Complete brake system repair and maintenance"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Engine Diagnostics",
+                        "description": "Comprehensive engine diagnostic services"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Mobile Car Service",
+                        "description": "Convenient mobile auto repair at your location"
+                    }
+                }
+            ]
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "150"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "author": {
+                    "@type": "Person",
+                    "name": "John D."
+                },
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5"
+                },
+                "reviewBody": "Excellent service and fair pricing. They fixed my brake issue quickly and professionally."
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="bg-gray-100 font-body">
     <!-- Loading Screen -->
@@ -44,12 +178,25 @@
                 <div class="hidden md:block">
                     <div id="nav-menu" class="ml-10 flex items-baseline space-x-4">
                         <!-- Navigation items will be loaded here -->
+                        <a href="#home" class="nav-link" data-section="home">Home</a>
+                        <a href="#about" class="nav-link" data-section="about">About Us</a>
+                        <a href="#services" class="nav-link" data-section="services">Services</a>
+                        <a href="#booking" class="nav-link" data-section="booking">Book an Appointment</a>
+                        <a href="#gallery" class="nav-link" data-section="gallery">Gallery</a>
+                        <a href="#testimonials" class="nav-link" data-section="testimonials">Testimonials</a>
+                        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
                     </div>
                 </div>
                 
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-white hover:text-accent focus:outline-none">
+                    <button 
+                        id="mobile-menu-btn" 
+                        class="text-white hover:text-accent focus:outline-none"
+                        aria-expanded="false"
+                        aria-controls="mobile-menu"
+                        aria-label="Toggle navigation menu"
+                    >
                         <i class="bi bi-list text-2xl"></i>
                     </button>
                 </div>
@@ -60,6 +207,13 @@
         <div id="mobile-menu" class="md:hidden hidden bg-primary border-t border-gray-700">
             <div id="mobile-nav-menu" class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <!-- Mobile navigation items will be loaded here -->
+                <a href="#home" class="mobile-nav-link" data-section="home">Home</a>
+                <a href="#about" class="mobile-nav-link" data-section="about">About Us</a>
+                <a href="#services" class="mobile-nav-link" data-section="services">Services</a>
+                <a href="#booking" class="mobile-nav-link" data-section="booking">Book an Appointment</a>
+                <a href="#gallery" class="mobile-nav-link" data-section="gallery">Gallery</a>
+                <a href="#testimonials" class="mobile-nav-link" data-section="testimonials">Testimonials</a>
+                <a href="#contact" class="mobile-nav-link" data-section="contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -100,14 +254,111 @@
         </section>
 
         <!-- Booking Section -->
-        <section id="booking" class="py-16 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="booking" class="py-16 bg-gradient-to-br from-primary to-gray-800 relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-accent to-transparent"></div>
+                <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full opacity-20 transform translate-x-32 translate-y-32"></div>
+                <div class="absolute top-10 right-10 w-32 h-32 bg-accent rounded-full opacity-30"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-12">
-                    <h2 id="booking-title" class="text-3xl font-heading font-bold text-primary mb-4">Book Your Service</h2>
-                    <p class="text-gray-600">Get your vehicle serviced by our certified technicians</p>
+                    <h2 id="booking-title" class="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Book Your Service</h2>
+                    <p class="text-xl text-gray-200 mb-6">Get your vehicle serviced by our certified technicians</p>
+                    <div class="booking-features">
+                        <div class="flex justify-center items-center space-x-6 text-white">
+                            <div class="flex items-center">
+                                <i class="bi bi-clock text-accent text-xl mr-2"></i>
+                                <span>Quick Response</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="bi bi-shield-check text-accent text-xl mr-2"></i>
+                                <span>Licensed & Insured</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="bi bi-award text-accent text-xl mr-2"></i>
+                                <span>ASE Certified</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div id="booking-form" class="bg-gray-50 rounded-lg p-8">
-                    <!-- Booking form will be loaded here -->
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left Column - Benefits -->
+                    <div class="booking-benefits-container">
+                        <div class="text-white">
+                            <h3 class="text-2xl font-heading font-semibold mb-6">Why Book With Us?</h3>
+                            <div class="space-y-4">
+                                <div class="booking-benefit">
+                                    <div class="booking-benefit-icon">
+                                        <i class="bi bi-calendar-check text-white"></i>
+                                    </div>
+                                    <div class="booking-benefit-content">
+                                        <h4 class="font-semibold mb-1">Easy Scheduling</h4>
+                                        <p>Book online or call us directly. We'll confirm your appointment within 24 hours.</p>
+                                    </div>
+                                </div>
+                                <div class="booking-benefit mobile-service-benefit" data-action="select-mobile-service">
+                                    <div class="booking-benefit-icon">
+                                        <i class="bi bi-geo-alt text-white"></i>
+                                    </div>
+                                    <div class="booking-benefit-content">
+                                        <h4 class="font-semibold mb-1">Mobile Service Available</h4>
+                                        <p>We can come to your location for many services. No need to leave work or home.</p>
+                                        <div class="mobile-service-cta">
+                                            <span>Click to select mobile service</span>
+                                            <i class="bi bi-arrow-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="booking-benefit">
+                                    <div class="booking-benefit-icon">
+                                        <i class="bi bi-cash-stack text-white"></i>
+                                    </div>
+                                    <div class="booking-benefit-content">
+                                        <h4 class="font-semibold mb-1">Transparent Pricing</h4>
+                                        <p>No hidden fees. Get an estimate upfront and know exactly what you're paying.</p>
+                                    </div>
+                                </div>
+                                <div class="booking-benefit">
+                                    <div class="booking-benefit-icon">
+                                        <i class="bi bi-tools text-white"></i>
+                                    </div>
+                                    <div class="booking-benefit-content">
+                                        <h4 class="font-semibold mb-1">Quality Guarantee</h4>
+                                        <p>All work comes with our warranty. Your satisfaction is our priority.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column - Form -->
+                    <div class="bg-white rounded-2xl shadow-2xl p-8">
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-heading font-bold text-primary mb-2">Schedule Service</h3>
+                            <p class="text-gray-600">Fill out the form below and we'll get back to you soon</p>
+                        </div>
+                        <div id="booking-form">
+                            <!-- Booking form will be loaded here -->
+                        </div>
+                        
+                        <!-- Quick Contact Options -->
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <p class="text-center text-gray-600 mb-4">Prefer to call or text?</p>
+                            <div class="flex justify-center space-x-4">
+                                <a href="tel:111-222-3333" class="bg-accent text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all flex items-center">
+                                    <i class="bi bi-telephone mr-2"></i>
+                                    Call Now
+                                </a>
+                                <a href="sms:111-222-3333" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all flex items-center">
+                                    <i class="bi bi-chat-dots mr-2"></i>
+                                    Text Us
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
