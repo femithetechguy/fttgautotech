@@ -545,9 +545,20 @@ class FTTGAutoTechApp {
             const currentYear = new Date().getFullYear();
             const displayYear = footer.copyright?.year === 'dynamic' || !footer.copyright?.year ? currentYear : footer.copyright.year;
             
+            // Generate social media links
+            const socialLinksHtml = footer.socialLinks ? `
+                <div class="footer-social-links">
+                    ${footer.socialLinks.map(link => `
+                        <a href="${link.url}" target="_blank" rel="noopener noreferrer" aria-label="${link.platform}">
+                            <i class="bi ${link.icon}"></i>
+                        </a>
+                    `).join('')}
+                </div>
+            ` : '';
+            
             footerCopyright.innerHTML = `
                 <div class="border-t border-gray-600 mt-8 pt-8 text-center text-gray-300">
-                    <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex flex-col md:flex-row justify-between items-center mb-4">
                         <p>&copy; ${displayYear} ${business?.name || 'FTTG AutoTech'}. ${footer.copyright?.text || 'All rights reserved.'}</p>
                         ${footer.createdBy ? `
                             <p class="mt-2 md:mt-0">
@@ -557,6 +568,7 @@ class FTTGAutoTechApp {
                             </p>
                         ` : ''}
                     </div>
+                    ${socialLinksHtml}
                 </div>
             `;
         }

@@ -88,6 +88,12 @@ const structuredData = {
             },
             "reviewBody": "Excellent service and fair pricing. They fixed my brake issue quickly and professionally."
         }
+    ],
+    "sameAs": [
+        "https://www.facebook.com/FTTGAutoTech",
+        "https://www.instagram.com/fttgautotech",
+        "https://www.youtube.com/@fttgautotech",
+        "https://www.linkedin.com/company/fttgautotech"
     ]
 };
 
