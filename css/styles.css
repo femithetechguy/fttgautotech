@@ -1,0 +1,150 @@
+/* CSS Custom Properties for Dynamic Theming */
+:root {
+  --primary-color: #1D2A35;
+  --accent-color: #FF6B00;
+  --accent-alt-color: #00FF7F;
+  --text-primary: #1D2A35;
+  --text-secondary: #6B7280;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F9FAFB;
+  --bg-tertiary: #F3F4F6;
+}
+
+/* Tailwind Custom Classes */
+.bg-primary { background-color: var(--primary-color) !important; }
+.bg-accent { background-color: var(--accent-color) !important; }
+.text-primary { color: var(--primary-color) !important; }
+.text-accent { color: var(--accent-color) !important; }
+.border-accent { border-color: var(--accent-color) !important; }
+.ring-accent { --tw-ring-color: var(--accent-color) !important; }
+
+/* Font Family Classes */
+.font-heading { font-family: 'Montserrat', sans-serif; }
+.font-body { font-family: 'Open Sans', sans-serif; }
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+/* Loading Screen */
+#loading {
+  background-color: var(--primary-color);
+  transition: opacity 0.5s ease-out;
+}
+
+/* Navigation Styles */
+.nav-link {
+  @apply text-white hover:text-accent-color transition-colors duration-200 px-3 py-2 rounded-md text-sm font-medium;
+}
+
+.nav-link:hover {
+  color: var(--accent-color);
+}
+
+.nav-link.active {
+  color: var(--accent-color);
+  background-color: rgba(255, 107, 0, 0.1);
+}
+
+/* Mobile Menu */
+.mobile-nav-link {
+  @apply text-white hover:text-accent-color block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200;
+}
+
+.mobile-nav-link:hover {
+  color: var(--accent-color);
+  background-color: rgba(255, 107, 0, 0.1);
+}
+
+/* Utility Classes */
+.btn-primary {
+  @apply bg-accent text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:bg-opacity-90 hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply bg-transparent border-2 border-accent text-accent px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:bg-accent hover:text-white;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-lg p-6 transition-transform duration-200 hover:transform hover:scale-105;
+}
+
+.service-card {
+  @apply bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-200 hover:shadow-xl hover:transform hover:scale-105;
+}
+
+.feature-card {
+  @apply bg-white rounded-lg p-6 text-center shadow-md;
+}
+
+/* Form Styles */
+.form-input {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200;
+}
+
+.form-textarea {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent resize-none transition-all duration-200;
+}
+
+.form-select {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent appearance-none transition-all duration-200;
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.25rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.125rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 1.875rem !important;
+  }
+  
+  .btn-primary, .btn-secondary {
+    @apply px-4 py-2 text-sm;
+  }
+}
