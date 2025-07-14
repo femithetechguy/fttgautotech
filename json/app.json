@@ -104,7 +104,7 @@
   "homepage": {
     "hero": {
       "title": "Precision. Passion. Performance.",
-      "subtitle": "Serving Metro Atlanta Since [Year]",
+      "subtitle": "Serving Metro Atlanta Since 1980",
       "cta": [
         "Book a Service",
         "Get a Free Estimate"
@@ -230,24 +230,14 @@
     },
     "socialLinks": [
       {
-        "platform": "Facebook",
-        "url": "#",
-        "icon": "bi-facebook"
-      },
-      {
-        "platform": "Twitter",
-        "url": "#",
-        "icon": "bi-twitter"
-      },
-      {
         "platform": "Instagram",
-        "url": "#",
+        "url": "https://www.instagram.com/fttgautotech",
         "icon": "bi-instagram"
       },
       {
-        "platform": "LinkedIn",
-        "url": "#",
-        "icon": "bi-linkedin"
+        "platform": "YouTube",
+        "url": "https://www.youtube.com/@fttgautotech",
+        "icon": "bi-youtube"
       }
     ],
     "quickLinks": [
