@@ -280,6 +280,7 @@ class FTTGAutoTechApp {
         const business = this.appData?.business;
         const contact = this.appData?.contact;
         const navigation = this.appData?.navigation;
+        const footer = this.appData?.footer;
 
         // Footer title and tagline
         const footerTitle = document.getElementById('footer-title');
@@ -319,6 +320,29 @@ class FTTGAutoTechApp {
                     <i class="bi bi-geo-alt mr-2"></i>
                     ${contact.serviceArea}
                 </p>
+            `;
+        }
+
+        // Update footer copyright section
+        const footerCopyright = document.querySelector('footer .border-t');
+        if (footerCopyright && footer) {
+            // Always use current year when set to "dynamic" or if no year is specified
+            const currentYear = new Date().getFullYear();
+            const displayYear = footer.copyright?.year === 'dynamic' || !footer.copyright?.year ? currentYear : footer.copyright.year;
+            
+            footerCopyright.innerHTML = `
+                <div class="border-t border-gray-600 mt-8 pt-8 text-center text-gray-300">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <p>&copy; ${displayYear} ${business?.name || 'FTTG AutoTech'}. ${footer.copyright?.text || 'All rights reserved.'}</p>
+                        ${footer.createdBy ? `
+                            <p class="mt-2 md:mt-0">
+                                <a href="${footer.createdBy.url}" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-orange-400 transition-colors">
+                                    ${footer.createdBy.text}
+                                </a>
+                            </p>
+                        ` : ''}
+                    </div>
+                </div>
             `;
         }
     }
