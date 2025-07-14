@@ -1,4 +1,3 @@
-Awesome, Adefemi! Launching a modern website for your mechanic business (FTTG AutoTech) in the Atlanta metro area is a powerful step toward visibility, trust, and growth. Below is a complete strategic guide to your website’s theme, structure, layout, tech stack, and content.
 
 ⸻
 
@@ -42,8 +41,11 @@ Book an Appointment	Online form or link to Calendly-style scheduler
 Gallery	Before/after images, shop photos
 Testimonials	Customer reviews and video snippets
 Contact	Map (Google), form, phone, hours
-Blog (optional)	DIY tips, car maintenance advice, promo updates
-
+Contact
+→ Phone: 111-222-3333
+→ General Contact: contact@fttgautotech.com (For inquiries, appointments, and estimates)
+→ Support/Customer Service: support@fttgautotech.com (For service follow-ups, complaints, and customer care)
+(Blog (optional)	DIY tips, car maintenance advice, promo updates)
 
 ⸻
 
