@@ -217,5 +217,52 @@
       "ASE certified mechanics"
     ],
     "localFocus": "Metro Atlanta"
+  },
+  "footer": {
+    "createdBy": {
+      "text": "Created with <i class='bi bi-heart-fill text-red-500'></i> by FTTG SOLUTIONS",
+      "url": "https://fttgsolutions.com",
+      "company": "FTTG SOLUTIONS"
+    },
+    "copyright": {
+      "year": "dynamic",
+      "text": "All rights reserved."
+    },
+    "socialLinks": [
+      {
+        "platform": "Facebook",
+        "url": "#",
+        "icon": "bi-facebook"
+      },
+      {
+        "platform": "Twitter",
+        "url": "#",
+        "icon": "bi-twitter"
+      },
+      {
+        "platform": "Instagram",
+        "url": "#",
+        "icon": "bi-instagram"
+      },
+      {
+        "platform": "LinkedIn",
+        "url": "#",
+        "icon": "bi-linkedin"
+      }
+    ],
+    "quickLinks": [
+      {
+        "text": "Privacy Policy",
+        "url": "#privacy"
+      },
+      {
+        "text": "Terms of Service",
+        "url": "#terms"
+      },
+      {
+        "text": "Warranty Info",
+        "url": "#warranty"
+      }
+    ]
   }
 }
