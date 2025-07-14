@@ -87,7 +87,6 @@ class FTTGAutoTechApp {
         this.renderBookingForm();
         this.renderContact();
         this.renderFooter();
-        this.updatePageTitle();
     }
 
     renderNavigation() {
@@ -560,13 +559,6 @@ class FTTGAutoTechApp {
                     </div>
                 </div>
             `;
-        }
-    }
-
-    updatePageTitle() {
-        const business = this.appData?.business;
-        if (business?.name && business?.tagline) {
-            document.title = `${business.name} - ${business.tagline}`;
         }
     }
 
