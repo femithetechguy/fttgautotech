@@ -20,12 +20,23 @@ class FTTGAutoTechApp {
 
     async loadAppData() {
         try {
-            const response = await fetch('./json/app.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            const [appResponse, carResponse] = await Promise.all([
+                fetch('./json/app.json'),
+                fetch('./json/car.json')
+            ]);
+            
+            if (!appResponse.ok) {
+                throw new Error(`HTTP error! status: ${appResponse.status}`);
             }
-            this.appData = await response.json();
+            if (!carResponse.ok) {
+                throw new Error(`HTTP error! status: ${carResponse.status}`);
+            }
+            
+            this.appData = await appResponse.json();
+            this.carData = await carResponse.json();
+            
             console.log('App data loaded successfully:', this.appData);
+            console.log('Car data loaded successfully:', this.carData);
         } catch (error) {
             console.error('Error loading app data:', error);
             throw error;
@@ -124,7 +135,7 @@ class FTTGAutoTechApp {
         const ctaElement = document.getElementById('hero-cta');
         if (ctaElement && hero.cta) {
             ctaElement.innerHTML = hero.cta.map((cta, index) => `
-                <a href="#booking" class="hero-btn ${index === 0 ? 'hero-btn-primary' : 'hero-btn-secondary'} inline-block px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:transform hover:scale-105">
+                <a href="#booking" class="hero-btn ${index === 0 ? 'hero-btn-primary' : 'hero-btn-secondary'} inline-block px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:transform hover:scale-105" data-mobile-direct="true">
                     ${cta}
                 </a>
             `).join('');
@@ -200,41 +211,229 @@ class FTTGAutoTechApp {
 
         if (bookingForm && booking.formFields) {
             bookingForm.innerHTML = `
-                <form class="booking-form grid grid-cols-1 md:grid-cols-2 gap-4">
+                <form class="booking-form grid grid-cols-1 md:grid-cols-2 gap-6">
                     ${booking.formFields.map(field => {
                         const fieldName = field.toLowerCase().replace(/\s+/g, '-');
                         const placeholder = field.charAt(0).toUpperCase() + field.slice(1);
+                        const isRequired = ['name', 'phone', 'service needed'].includes(field);
                         
                         if (field === 'service needed') {
                             return `
-                                <div class="md:col-span-2">
-                                    <select name="${fieldName}" class="form-select" required>
+                                <div class="form-group full-width">
+                                    <label for="${fieldName}">Service Needed ${isRequired ? '*' : ''}</label>
+                                    <select name="${fieldName}" id="${fieldName}" class="form-select" ${isRequired ? 'required' : ''}>
                                         <option value="">Select Service Needed</option>
                                         <option value="oil-change">Oil Change</option>
                                         <option value="brake-service">Brake Service</option>
                                         <option value="engine-diagnostics">Engine Diagnostics</option>
                                         <option value="ac-repair">A/C Repair</option>
+                                        <option value="transmission">Transmission Service</option>
+                                        <option value="mobile-service">Mobile Service</option>
+                                        <option value="inspection">Vehicle Inspection</option>
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
                             `;
                         }
                         
+                        if (field === 'car make/model') {
+                            return this.renderCarSelectionFields();
+                        }
+                        
                         return `
-                            <div>
-                                <input type="text" name="${fieldName}" placeholder="${placeholder}" class="form-input" required>
+                            <div class="form-group">
+                                <label for="${fieldName}">${placeholder} ${isRequired ? '*' : ''}</label>
+                                <input 
+                                    type="${fieldName === 'phone' ? 'tel' : 'text'}" 
+                                    name="${fieldName}" 
+                                    id="${fieldName}"
+                                    placeholder="Enter your ${field.toLowerCase()}" 
+                                    class="form-input" 
+                                    ${isRequired ? 'required' : ''}
+                                >
                             </div>
                         `;
                     }).join('')}
-                    <div class="md:col-span-2">
-                        <textarea name="additional-notes" placeholder="Additional notes or details" rows="3" class="form-textarea"></textarea>
+                    
+                    <div class="form-group full-width">
+                        <label for="preferred-date">Preferred Date</label>
+                        <input type="date" name="preferred-date" id="preferred-date" class="form-input" min="${new Date().toISOString().split('T')[0]}">
                     </div>
-                    <div class="md:col-span-2">
-                        <button type="submit" class="btn-primary w-full">Book Now</button>
+                    
+                    <div class="form-group full-width">
+                        <label for="preferred-time">Preferred Time</label>
+                        <select name="preferred-time" id="preferred-time" class="form-select">
+                            <option value="">Select preferred time</option>
+                            <option value="morning">Morning (8AM - 12PM)</option>
+                            <option value="afternoon">Afternoon (12PM - 5PM)</option>
+                            <option value="evening">Evening (5PM - 7PM)</option>
+                            <option value="flexible">I'm flexible</option>
+                        </select>
                     </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="additional-notes">Additional Notes</label>
+                        <textarea 
+                            name="additional-notes" 
+                            id="additional-notes"
+                            placeholder="Tell us more about your vehicle's issue or any special requests..." 
+                            rows="4" 
+                            class="form-textarea"
+                        ></textarea>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <div class="mobile-service-container">
+                            <label class="mobile-service-label">
+                                <input type="checkbox" name="mobile-service-interest" id="mobile-service-checkbox" class="mobile-service-checkbox">
+                                <div class="mobile-service-content">
+                                    <div class="mobile-service-icon">
+                                        <i class="bi bi-geo-alt"></i>
+                                    </div>
+                                    <div class="mobile-service-text">
+                                        <h4>Mobile Service Available</h4>
+                                        <span>We come to your location for convenient service</span>
+                                    </div>
+                                    <div class="mobile-service-badge">
+                                        <span>Popular</span>
+                                    </div>
+                                </div>
+                            </label>
+                            
+                            <div id="service-location-container" class="service-location-container" style="display: none;">
+                                <div class="service-location-header">
+                                    <i class="bi bi-pin-map"></i>
+                                    <span>Where should we come to service your vehicle?</span>
+                                </div>
+                                <div class="service-location-fields">
+                                    <div class="form-group">
+                                        <label for="service-address">Service Address *</label>
+                                        <input 
+                                            type="text" 
+                                            name="service-address" 
+                                            id="service-address"
+                                            placeholder="Enter street address" 
+                                            class="form-input service-location-input"
+                                        >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="service-city">City *</label>
+                                        <input 
+                                            type="text" 
+                                            name="service-city" 
+                                            id="service-city"
+                                            placeholder="Enter city" 
+                                            class="form-input service-location-input"
+                                        >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="service-zip">ZIP Code *</label>
+                                        <input 
+                                            type="text" 
+                                            name="service-zip" 
+                                            id="service-zip"
+                                            placeholder="Enter ZIP code" 
+                                            class="form-input service-location-input"
+                                        >
+                                    </div>
+                                    <div class="form-group full-width">
+                                        <label for="location-type">Location Type</label>
+                                        <select name="location-type" id="location-type" class="form-select">
+                                            <option value="">Select location type</option>
+                                            <option value="home">Home/Residential</option>
+                                            <option value="office">Office/Workplace</option>
+                                            <option value="parking-lot">Parking Lot</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group full-width">
+                                        <label for="location-notes">Location Instructions</label>
+                                        <textarea 
+                                            name="location-notes" 
+                                            id="location-notes"
+                                            placeholder="Any special instructions for finding you? (e.g., building number, parking details, access codes)" 
+                                            rows="3" 
+                                            class="form-textarea"
+                                        ></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="booking-submit">
+                        <span class="submit-text">Book My Service</span>
+                        <i class="bi bi-arrow-right ml-2"></i>
+                    </button>
                 </form>
             `;
         }
+    }
+
+    renderCarSelectionFields() {
+        if (!this.carData?.carData) {
+            // Fallback to simple text input if car data not available
+            return `
+                <div class="form-group">
+                    <label for="car-make-model">Car Make/Model *</label>
+                    <input 
+                        type="text" 
+                        name="car-make-model" 
+                        id="car-make-model"
+                        placeholder="Enter your car make and model" 
+                        class="form-input" 
+                        required
+                    >
+                </div>
+            `;
+        }
+
+        const carData = this.carData.carData;
+        
+        return `
+            <div class="form-group">
+                <label for="car-make">Car Make *</label>
+                <select name="car-make" id="car-make" class="form-select" required onchange="window.app.updateModelOptions(this.value)">
+                    <option value="">Select Car Make</option>
+                    ${carData.makes.map(make => `<option value="${make}">${make}</option>`).join('')}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="car-model">Car Model *</label>
+                <select name="car-model" id="car-model" class="form-select" required disabled>
+                    <option value="">Select Make First</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="car-year">Car Year *</label>
+                <select name="car-year" id="car-year" class="form-select" required>
+                    <option value="">Select Year</option>
+                    ${carData.years.map(year => `<option value="${year}">${year}</option>`).join('')}
+                </select>
+            </div>
+        `;
+    }
+
+    updateModelOptions(selectedMake) {
+        const modelSelect = document.getElementById('car-model');
+        if (!modelSelect || !this.carData?.carData?.models[selectedMake]) {
+            return;
+        }
+
+        const models = this.carData.carData.models[selectedMake];
+        
+        modelSelect.innerHTML = `
+            <option value="">Select Model</option>
+            ${models.map(model => `<option value="${model}">${model}</option>`).join('')}
+        `;
+        
+        modelSelect.disabled = false;
+        
+        // Add visual feedback
+        modelSelect.classList.add('updated');
+        setTimeout(() => modelSelect.classList.remove('updated'), 300);
     }
 
     renderContact() {
@@ -406,18 +605,269 @@ class FTTGAutoTechApp {
                 }
             }
         });
+
+        // Mobile service checkbox functionality
+        document.addEventListener('change', (e) => {
+            if (e.target.matches('#mobile-service-checkbox')) {
+                this.handleMobileServiceToggle(e.target);
+            }
+        });
+
+        // Service location input validation
+        document.addEventListener('input', (e) => {
+            if (e.target.matches('.service-location-input')) {
+                this.validateServiceLocationField(e.target);
+            }
+        });
+
+        // Mobile service benefit card click handler
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('[data-action="select-mobile-service"]')) {
+                this.selectMobileService();
+            }
+        });
+
+        // Mobile-specific hero button click handler
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('[data-mobile-direct="true"]') && this.isMobileDevice()) {
+                e.preventDefault();
+                this.scrollToBookingForm();
+            }
+        });
     }
 
     handleBookingSubmission(form) {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
         
+        // Validate mobile service fields if mobile service is selected
+        const mobileServiceChecked = document.getElementById('mobile-service-checkbox')?.checked;
+        if (mobileServiceChecked) {
+            const requiredFields = ['service-address', 'service-city', 'service-zip'];
+            const missingFields = [];
+            
+            requiredFields.forEach(fieldName => {
+                if (!data[fieldName] || data[fieldName].trim() === '') {
+                    missingFields.push(fieldName);
+                }
+            });
+            
+            if (missingFields.length > 0) {
+                alert('Please fill in all required service location fields.');
+                // Focus on first missing field
+                const firstMissingField = document.getElementById(missingFields[0]);
+                if (firstMissingField) {
+                    firstMissingField.focus();
+                    firstMissingField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return;
+            }
+        }
+        
+        // Add mobile service info to submission data
+        if (mobileServiceChecked) {
+            data['is-mobile-service'] = true;
+            data['service-location'] = {
+                address: data['service-address'],
+                city: data['service-city'],
+                zip: data['service-zip'],
+                type: data['location-type'],
+                notes: data['location-notes']
+            };
+        }
+        
         // Here you would typically send the data to your backend
         console.log('Booking submission:', data);
         
-        // For now, show a success message
-        alert('Thank you for your booking request! We will contact you soon.');
+        // Show appropriate success message
+        const successMessage = mobileServiceChecked 
+            ? 'Thank you for your mobile service booking! We will contact you soon to confirm your appointment and service location.'
+            : 'Thank you for your booking request! We will contact you soon.';
+            
+        alert(successMessage);
         form.reset();
+        
+        // Reset mobile service container if it was shown
+        if (mobileServiceChecked) {
+            const serviceLocationContainer = document.getElementById('service-location-container');
+            if (serviceLocationContainer) {
+                serviceLocationContainer.style.display = 'none';
+                serviceLocationContainer.classList.remove('show');
+            }
+        }
+    }
+
+    renderCarSelectionFields() {
+        if (!this.carData?.carData) {
+            // Fallback to simple text input if car data not available
+            return `
+                <div class="form-group">
+                    <label for="car-make-model">Car Make/Model *</label>
+                    <input 
+                        type="text" 
+                        name="car-make-model" 
+                        id="car-make-model"
+                        placeholder="Enter your car make and model" 
+                        class="form-input" 
+                        required
+                    >
+                </div>
+            `;
+        }
+
+        const carData = this.carData.carData;
+        
+        return `
+            <div class="form-group">
+                <label for="car-make">Car Make *</label>
+                <select name="car-make" id="car-make" class="form-select" required onchange="window.app.updateModelOptions(this.value)">
+                    <option value="">Select Car Make</option>
+                    ${carData.makes.map(make => `<option value="${make}">${make}</option>`).join('')}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="car-model">Car Model *</label>
+                <select name="car-model" id="car-model" class="form-select" required disabled>
+                    <option value="">Select Make First</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="car-year">Car Year *</label>
+                <select name="car-year" id="car-year" class="form-select" required>
+                    <option value="">Select Year</option>
+                    ${carData.years.map(year => `<option value="${year}">${year}</option>`).join('')}
+                </select>
+            </div>
+        `;
+    }
+
+    updateModelOptions(selectedMake) {
+        const modelSelect = document.getElementById('car-model');
+        if (!modelSelect || !this.carData?.carData?.models[selectedMake]) {
+            return;
+        }
+
+        const models = this.carData.carData.models[selectedMake];
+        
+        modelSelect.innerHTML = `
+            <option value="">Select Model</option>
+            ${models.map(model => `<option value="${model}">${model}</option>`).join('')}
+        `;
+        
+        modelSelect.disabled = false;
+        
+        // Add visual feedback
+        modelSelect.classList.add('updated');
+        setTimeout(() => modelSelect.classList.remove('updated'), 300);
+    }
+
+    selectMobileService() {
+        // Scroll to booking form
+        const bookingForm = document.getElementById('booking-form');
+        if (bookingForm) {
+            bookingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // Wait for scroll, then select mobile service
+        setTimeout(() => {
+            const mobileServiceCheckbox = document.getElementById('mobile-service-checkbox');
+            const serviceNeededSelect = document.getElementById('service-needed');
+            
+            if (mobileServiceCheckbox && !mobileServiceCheckbox.checked) {
+                mobileServiceCheckbox.checked = true;
+                this.handleMobileServiceToggle(mobileServiceCheckbox);
+            }
+            
+            // Also set service type to mobile service if not already selected
+            if (serviceNeededSelect && serviceNeededSelect.value === '') {
+                serviceNeededSelect.value = 'mobile-service';
+                serviceNeededSelect.classList.add('form-select', 'updated');
+            }
+            
+            // Add visual feedback
+            const mobileServiceContainer = document.querySelector('.mobile-service-container');
+            if (mobileServiceContainer) {
+                mobileServiceContainer.style.border = '2px solid ' + 'var(--accent-color)';
+                setTimeout(() => {
+                    mobileServiceContainer.style.border = '';
+                }, 2000);
+            }
+        }, 1000);
+    }
+
+    handleMobileServiceToggle(checkbox) {
+        const serviceLocationContainer = document.getElementById('service-location-container');
+        const serviceLocationInputs = document.querySelectorAll('.service-location-input');
+        
+        if (checkbox.checked) {
+            // Show service location fields with animation
+            serviceLocationContainer.style.display = 'block';
+            setTimeout(() => {
+                serviceLocationContainer.classList.add('show');
+            }, 10);
+            
+            // Make service location fields required
+            serviceLocationInputs.forEach(input => {
+                input.setAttribute('required', 'required');
+            });
+            
+            // Scroll to service location section
+            setTimeout(() => {
+                serviceLocationContainer.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'nearest' 
+                });
+            }, 300);
+            
+        } else {
+            // Hide service location fields
+            serviceLocationContainer.classList.remove('show');
+            setTimeout(() => {
+                serviceLocationContainer.style.display = 'none';
+            }, 300);
+            
+            // Remove required attribute and clear values
+            serviceLocationInputs.forEach(input => {
+                input.removeAttribute('required');
+                input.value = '';
+                input.classList.remove('valid', 'invalid');
+            });
+            
+            // Clear location type and notes
+            const locationTypeSelect = document.getElementById('location-type');
+            const locationNotesTextarea = document.getElementById('location-notes');
+            if (locationTypeSelect) locationTypeSelect.value = '';
+            if (locationNotesTextarea) locationNotesTextarea.value = '';
+        }
+    }
+
+    validateServiceLocationField(field) {
+        const value = field.value.trim();
+        let isValid = false;
+        
+        switch (field.name) {
+            case 'service-address':
+                isValid = value.length >= 5;
+                break;
+            case 'service-city':
+                isValid = value.length >= 2 && /^[a-zA-Z\s]+$/.test(value);
+                break;
+            case 'service-zip':
+                isValid = /^\d{5}(-\d{4})?$/.test(value);
+                break;
+            default:
+                isValid = value.length > 0;
+        }
+        
+        // Update field styling
+        field.classList.remove('valid', 'invalid');
+        if (value.length > 0) {
+            field.classList.add(isValid ? 'valid' : 'invalid');
+        }
+        
+        return isValid;
     }
 
     hideLoading() {
@@ -448,6 +898,55 @@ class FTTGAutoTechApp {
         }
     }
 
+    isMobileDevice() {
+        // Check for mobile device using multiple methods
+        const userAgent = navigator.userAgent.toLowerCase();
+        const isMobileUserAgent = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        const isSmallScreen = window.innerWidth <= 768;
+        
+        return isMobileUserAgent || (isTouchDevice && isSmallScreen);
+    }
+
+    scrollToBookingForm() {
+        // First scroll to booking section
+        const bookingSection = document.getElementById('booking');
+        if (bookingSection) {
+            bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // Then after a short delay, scroll specifically to the form and focus first input
+        setTimeout(() => {
+            const bookingForm = document.querySelector('.booking-form');
+            const firstInput = document.querySelector('.booking-form input[type="text"], .booking-form input[type="tel"]');
+            
+            if (bookingForm) {
+                // Scroll to form with some offset for mobile header
+                const formRect = bookingForm.getBoundingClientRect();
+                const scrollTarget = window.pageYOffset + formRect.top - 100;
+                
+                window.scrollTo({
+                    top: scrollTarget,
+                    behavior: 'smooth'
+                });
+                
+                // Focus first input after scroll completes
+                setTimeout(() => {
+                    if (firstInput) {
+                        firstInput.focus();
+                        // Add visual highlight to show where user should start
+                        firstInput.classList.add('mobile-focused');
+                        firstInput.style.boxShadow = '0 0 0 3px rgba(255, 107, 0, 0.3)';
+                        setTimeout(() => {
+                            firstInput.style.boxShadow = '';
+                            firstInput.classList.remove('mobile-focused');
+                        }, 2000);
+                    }
+                }, 800);
+            }
+        }, 600);
+    }
+
     // Method to reload app data (useful for development)
     async reload() {
         console.log('Reloading app data...');
@@ -457,7 +956,8 @@ class FTTGAutoTechApp {
 
 // Initialize the app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    window.fttgApp = new FTTGAutoTechApp();
+    window.app = new FTTGAutoTechApp();
+    window.fttgApp = window.app; // Keep backward compatibility
 });
 
 // Auto-reload functionality for development

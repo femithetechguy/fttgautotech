@@ -27,6 +27,18 @@ class BookingModule {
                 pattern: /^[\+]?[1-9][\d]{0,15}$/,
                 message: 'Please enter a valid phone number'
             },
+            'car-make': {
+                required: true,
+                message: 'Please select your car make'
+            },
+            'car-model': {
+                required: true,
+                message: 'Please select your car model'
+            },
+            'car-year': {
+                required: true,
+                message: 'Please select your car year'
+            },
             'car-make-model': {
                 required: true,
                 minLength: 3,
@@ -88,6 +100,9 @@ class BookingModule {
         const labels = {
             'name': 'Name',
             'phone': 'Phone',
+            'car-make': 'Car Make',
+            'car-model': 'Car Model', 
+            'car-year': 'Car Year',
             'car-make-model': 'Car Make/Model',
             'service-needed': 'Service'
         };
