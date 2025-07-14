@@ -45,12 +45,25 @@
                 <div class="hidden md:block">
                     <div id="nav-menu" class="ml-10 flex items-baseline space-x-4">
                         <!-- Navigation items will be loaded here -->
+                        <a href="#home" class="nav-link" data-section="home">Home</a>
+                        <a href="#about" class="nav-link" data-section="about">About Us</a>
+                        <a href="#services" class="nav-link" data-section="services">Services</a>
+                        <a href="#booking" class="nav-link" data-section="booking">Book an Appointment</a>
+                        <a href="#gallery" class="nav-link" data-section="gallery">Gallery</a>
+                        <a href="#testimonials" class="nav-link" data-section="testimonials">Testimonials</a>
+                        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
                     </div>
                 </div>
                 
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-white hover:text-accent focus:outline-none">
+                    <button 
+                        id="mobile-menu-btn" 
+                        class="text-white hover:text-accent focus:outline-none"
+                        aria-expanded="false"
+                        aria-controls="mobile-menu"
+                        aria-label="Toggle navigation menu"
+                    >
                         <i class="bi bi-list text-2xl"></i>
                     </button>
                 </div>
@@ -61,6 +74,13 @@
         <div id="mobile-menu" class="md:hidden hidden bg-primary border-t border-gray-700">
             <div id="mobile-nav-menu" class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <!-- Mobile navigation items will be loaded here -->
+                <a href="#home" class="mobile-nav-link" data-section="home">Home</a>
+                <a href="#about" class="mobile-nav-link" data-section="about">About Us</a>
+                <a href="#services" class="mobile-nav-link" data-section="services">Services</a>
+                <a href="#booking" class="mobile-nav-link" data-section="booking">Book an Appointment</a>
+                <a href="#gallery" class="mobile-nav-link" data-section="gallery">Gallery</a>
+                <a href="#testimonials" class="mobile-nav-link" data-section="testimonials">Testimonials</a>
+                <a href="#contact" class="mobile-nav-link" data-section="contact">Contact</a>
             </div>
         </div>
     </nav>

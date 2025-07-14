@@ -7,6 +7,9 @@ class FTTGAutoTechApp {
 
     async init() {
         try {
+            // Ensure navigation is visible immediately
+            this.ensureNavigationVisible();
+            
             await this.loadAppData();
             this.applyTheme();
             this.renderContent();
@@ -16,6 +19,11 @@ class FTTGAutoTechApp {
             console.error('Failed to initialize app:', error);
             this.showError();
         }
+        
+        // Always ensure navigation is visible after initialization
+        setTimeout(() => {
+            this.ensureNavigationVisible();
+        }, 100);
     }
 
     async loadAppData() {
@@ -84,30 +92,39 @@ class FTTGAutoTechApp {
 
     renderNavigation() {
         const navigation = this.appData?.navigation;
-        if (!navigation) return;
+        if (!navigation) {
+            console.warn('Navigation data not available, using fallback navigation');
+            return;
+        }
 
         const navMenu = document.getElementById('nav-menu');
         const mobileNavMenu = document.getElementById('mobile-nav-menu');
         
         if (navMenu && mobileNavMenu) {
-            const navItems = navigation
-                .filter(item => !item.optional)
-                .map(item => `
-                    <a href="${item.url}" class="nav-link" data-section="${item.section.toLowerCase().replace(/\s+/g, '-')}">
-                        ${item.section}
-                    </a>
-                `).join('');
+            // Only replace navigation if it's empty or contains placeholder text
+            if (navMenu.children.length === 0 || navMenu.textContent.includes('Navigation items will be loaded here')) {
+                const navItems = navigation
+                    .filter(item => !item.optional)
+                    .map(item => `
+                        <a href="${item.url}" class="nav-link" data-section="${item.section.toLowerCase().replace(/\s+/g, '-')}">
+                            ${item.section}
+                        </a>
+                    `).join('');
 
-            const mobileNavItems = navigation
-                .filter(item => !item.optional)
-                .map(item => `
-                    <a href="${item.url}" class="mobile-nav-link" data-section="${item.section.toLowerCase().replace(/\s+/g, '-')}">
-                        ${item.section}
-                    </a>
-                `).join('');
+                navMenu.innerHTML = navItems;
+            }
 
-            navMenu.innerHTML = navItems;
-            mobileNavMenu.innerHTML = mobileNavItems;
+            if (mobileNavMenu.children.length === 0 || mobileNavMenu.textContent.includes('Mobile navigation items will be loaded here')) {
+                const mobileNavItems = navigation
+                    .filter(item => !item.optional)
+                    .map(item => `
+                        <a href="${item.url}" class="mobile-nav-link" data-section="${item.section.toLowerCase().replace(/\s+/g, '-')}">
+                            ${item.section}
+                        </a>
+                    `).join('');
+
+                mobileNavMenu.innerHTML = mobileNavItems;
+            }
         }
     }
 
@@ -560,7 +577,21 @@ class FTTGAutoTechApp {
         
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+                this.toggleMobileMenu();
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    this.closeMobileMenu();
+                }
+            });
+            
+            // Close mobile menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    this.closeMobileMenu();
+                }
             });
         }
 
@@ -573,9 +604,7 @@ class FTTGAutoTechApp {
                     target.scrollIntoView({ behavior: 'smooth' });
                     
                     // Close mobile menu if open
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
+                    this.closeMobileMenu();
                 }
             }
         });
@@ -634,6 +663,47 @@ class FTTGAutoTechApp {
                 this.scrollToBookingForm();
             }
         });
+    }
+
+    toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        
+        if (mobileMenu) {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            
+            if (isHidden) {
+                this.openMobileMenu();
+            } else {
+                this.closeMobileMenu();
+            }
+        }
+    }
+
+    openMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        
+        if (mobileMenu) {
+            mobileMenu.classList.remove('hidden');
+            mobileMenuBtn?.setAttribute('aria-expanded', 'true');
+            
+            // Prevent body scroll when mobile menu is open
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    closeMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+            
+            // Restore body scroll
+            document.body.style.overflow = '';
+        }
     }
 
     handleBookingSubmission(form) {
@@ -887,14 +957,36 @@ class FTTGAutoTechApp {
         if (loading) {
             loading.innerHTML = `
                 <div class="text-center text-white">
-                    <i class="bi bi-exclamation-triangle text-6xl mb-4 text-red-400"></i>
-                    <h2 class="text-2xl font-bold mb-2">Oops! Something went wrong</h2>
-                    <p class="mb-4">We're having trouble loading the website. Please try refreshing the page.</p>
-                    <button onclick="location.reload()" class="bg-accent text-white px-6 py-3 rounded-lg hover:bg-opacity-90">
-                        Refresh Page
-                    </button>
+                    <div class="text-red-400 text-4xl mb-4">⚠️</div>
+                    <p class="text-lg">Loading failed, but navigation is still available</p>
                 </div>
             `;
+            
+            // Hide loading after 3 seconds even on error
+            setTimeout(() => {
+                loading.style.display = 'none';
+            }, 3000);
+        }
+        
+        // Ensure navigation is visible even on error
+        this.ensureNavigationVisible();
+    }
+
+    ensureNavigationVisible() {
+        const navMenu = document.getElementById('nav-menu');
+        const mobileNavMenu = document.getElementById('mobile-nav-menu');
+        
+        // Force navigation to be visible
+        if (navMenu) {
+            navMenu.style.visibility = 'visible';
+            navMenu.style.opacity = '1';
+            navMenu.style.display = 'flex';
+        }
+        
+        if (mobileNavMenu) {
+            mobileNavMenu.style.visibility = 'visible';
+            mobileNavMenu.style.opacity = '1';
+            mobileNavMenu.style.display = 'block';
         }
     }
 
@@ -947,6 +1039,55 @@ class FTTGAutoTechApp {
         }, 600);
     }
 
+    setupNavigationActiveStates() {
+        // Intersection Observer for scroll spy
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50px 0px -50px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    
+                    // Remove active class from all nav links
+                    navLinks.forEach(link => {
+                        link.classList.remove('active', 'current');
+                    });
+                    
+                    // Add active class to corresponding nav links
+                    const activeLinks = document.querySelectorAll(`[data-section="${sectionId}"], [href="#${sectionId}"]`);
+                    activeLinks.forEach(link => {
+                        link.classList.add('active', 'current');
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Handle click events for navigation links
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('.nav-link, .mobile-nav-link')) {
+                // Remove active from all links
+                navLinks.forEach(link => {
+                    link.classList.remove('active', 'current');
+                });
+                
+                // Add active to clicked link
+                e.target.classList.add('active', 'current');
+            }
+        });
+    }
+
     // Method to reload app data (useful for development)
     async reload() {
         console.log('Reloading app data...');
@@ -975,3 +1116,8 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
             .catch(error => console.log('Auto-reload check failed:', error));
     }, 2000); // Check every 2 seconds
 }
+
+// Navigation active state management
+        this.setupNavigationActiveStates();
+
+        // ...existing code...
