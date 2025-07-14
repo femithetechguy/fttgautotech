@@ -1,0 +1,221 @@
+{
+  "business": {
+    "name": "FTTG AutoTech",
+    "tagline": "Precision. Passion. Performance.",
+    "subtitle": "Serving Metro Atlanta Since [Year]",
+    "alternateTaglines": [
+      "Atlanta's Trusted Mobile & In-Shop Mechanic."
+    ]
+  },
+  "contact": {
+    "phone": "111-222-3333",
+    "emails": {
+      "general": "contact@fttgautotech.com",
+      "support": "support@fttgautotech.com"
+    },
+    "serviceArea": "Metro Atlanta"
+  },
+  "branding": {
+    "style": "Clean, bold, and tech-savvy",
+    "colors": {
+      "primary": {
+        "color": "#1D2A35",
+        "name": "Midnight blue",
+        "purpose": "trust + professionalism"
+      },
+      "accent": [
+        {
+          "color": "#FF6B00",
+          "name": "Safety orange",
+          "purpose": "energy + modernity"
+        },
+        {
+          "color": "#00FF7F",
+          "name": "Neon green",
+          "purpose": "energy + modernity"
+        }
+      ],
+      "neutral": "Light gray background with white content blocks"
+    },
+    "fonts": {
+      "headings": ["Montserrat", "Oswald"],
+      "body": ["Open Sans", "Inter"],
+      "description": {
+        "headings": "modern and strong",
+        "body": "clear, readable"
+      }
+    }
+  },
+  "techStack": {
+    "frontend": "HTML",
+    "styling": ["Tailwind CSS", "Bootstrap Icons"],
+    "hosting": {
+      "current": "Github pages",
+      "future": ["Vercel", "Netlify"]
+    },
+    "forms": {
+      "current": "Formspree",
+      "future": "custom backend"
+    }
+  },
+  "navigation": [
+    {
+      "section": "Home",
+      "description": "Welcome, tagline, and service highlights",
+      "url": "#home"
+    },
+    {
+      "section": "About Us",
+      "description": "Mission, values, why FTTG AutoTech stands out",
+      "url": "#about"
+    },
+    {
+      "section": "Services",
+      "description": "Auto repair, diagnostics, maintenance, mobile service, etc.",
+      "url": "#services"
+    },
+    {
+      "section": "Book an Appointment",
+      "description": "Online form or link to Calendly-style scheduler",
+      "url": "#booking"
+    },
+    {
+      "section": "Gallery",
+      "description": "Before/after images, shop photos",
+      "url": "#gallery"
+    },
+    {
+      "section": "Testimonials",
+      "description": "Customer reviews and video snippets",
+      "url": "#testimonials"
+    },
+    {
+      "section": "Contact",
+      "description": "Map (Google), form, phone, hours",
+      "url": "#contact"
+    },
+    {
+      "section": "Blog",
+      "description": "DIY tips, car maintenance advice, promo updates",
+      "url": "#blog",
+      "optional": true
+    }
+  ],
+  "homepage": {
+    "hero": {
+      "title": "Precision. Passion. Performance.",
+      "subtitle": "Serving Metro Atlanta Since [Year]",
+      "cta": [
+        "Book a Service",
+        "Get a Free Estimate"
+      ]
+    },
+    "services": {
+      "title": "Quick Services",
+      "items": [
+        {
+          "name": "Oil Change",
+          "icon": "oil-change"
+        },
+        {
+          "name": "Engine Diagnostics",
+          "icon": "engine-diagnostics"
+        },
+        {
+          "name": "Brake Service",
+          "icon": "brake-service"
+        },
+        {
+          "name": "A/C Repair",
+          "icon": "ac-repair"
+        }
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Us",
+      "features": [
+        "ASE Certified Techs",
+        "Mobile Service Available",
+        "Transparent Pricing",
+        "Warranty on All Work"
+      ]
+    },
+    "booking": {
+      "title": "Book Your Service",
+      "description": "Big button + form",
+      "formFields": [
+        "name",
+        "phone",
+        "car make/model",
+        "service needed"
+      ]
+    },
+    "serviceArea": {
+      "title": "Service Area",
+      "description": "Embedded Google map showing coverage in Metro Atlanta"
+    }
+  },
+  "mobileFeatures": [
+    {
+      "feature": "Sticky bottom Call Now button",
+      "type": "ui"
+    },
+    {
+      "feature": "Tap-to-schedule or tap-to-text",
+      "type": "interaction"
+    },
+    {
+      "feature": "QR code for quick access from flyers or cards",
+      "type": "marketing"
+    }
+  ],
+  "growthFeatures": [
+    {
+      "feature": "SEO optimization",
+      "description": "Use local keywords",
+      "examples": ["Mechanic in Gwinnett", "Brake repair East Point"]
+    },
+    {
+      "feature": "Google Reviews widget",
+      "type": "social-proof"
+    },
+    {
+      "feature": "Live Chat",
+      "tools": ["Tawk.to", "Crisp"],
+      "purpose": "instant leads"
+    },
+    {
+      "feature": "Newsletter or promo form",
+      "purpose": "repeat clients",
+      "optional": true
+    }
+  ],
+  "services": [
+    {
+      "category": "Repair",
+      "items": ["Auto repair", "Engine repair", "Brake repair"]
+    },
+    {
+      "category": "Maintenance",
+      "items": ["Oil change", "Regular maintenance", "Preventive care"]
+    },
+    {
+      "category": "Diagnostics",
+      "items": ["Engine diagnostics", "Computer diagnostics", "Troubleshooting"]
+    },
+    {
+      "category": "Specialty",
+      "items": ["Mobile service", "A/C repair", "Electrical work"]
+    }
+  ],
+  "seo": {
+    "keywords": [
+      "Mechanic in Gwinnett",
+      "Brake repair East Point",
+      "Auto repair Metro Atlanta",
+      "Mobile mechanic Atlanta",
+      "ASE certified mechanics"
+    ],
+    "localFocus": "Metro Atlanta"
+  }
+}

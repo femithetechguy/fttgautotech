@@ -1,0 +1,208 @@
+/* Mobile-Specific Styles */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block;
+  }
+  
+  .desktop-only {
+    display: none;
+  }
+}
+
+/* Mobile Call Button */
+#mobile-call-btn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #mobile-call-btn {
+    display: block;
+  }
+}
+
+.mobile-call-button {
+  width: 60px;
+  height: 60px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.4);
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.mobile-call-button:hover {
+  background-color: #e55a00;
+  transform: scale(1.1);
+}
+
+.mobile-call-button i {
+  font-size: 1.5rem;
+}
+
+/* Pulse animation for mobile call button */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(255, 107, 0, 0.6);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.4);
+  }
+}
+
+/* Mobile Navigation Enhancements */
+@media (max-width: 768px) {
+  #navbar {
+    backdrop-filter: blur(10px);
+    background-color: rgba(29, 42, 53, 0.95);
+  }
+  
+  .nav-link {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Mobile menu animation */
+  #mobile-menu {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  #mobile-menu.show {
+    transform: translateY(0);
+  }
+}
+
+/* Touch-friendly interactions */
+@media (max-width: 768px) {
+  .btn-primary, .btn-secondary {
+    min-height: 48px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .service-item {
+    min-height: 200px;
+    padding: 1.5rem;
+  }
+  
+  .feature-item {
+    min-height: 150px;
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile form improvements */
+@media (max-width: 768px) {
+  .form-input, .form-textarea, .form-select {
+    min-height: 48px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .booking-form {
+    padding: 1.5rem;
+  }
+  
+  .booking-form .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Mobile-specific hero adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 60vh;
+    padding: 2rem 1rem;
+  }
+  
+  .hero-title {
+    font-size: 2.25rem;
+    line-height: 1.1;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .hero-btn {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+  }
+}
+
+/* Mobile contact section */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .contact-info {
+    text-align: center;
+  }
+  
+  .contact-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 107, 0, 0.05);
+    border-radius: 8px;
+  }
+}
+
+/* Sticky mobile header */
+@media (max-width: 768px) {
+  #navbar.scrolled {
+    background-color: rgba(29, 42, 53, 0.98);
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* Mobile gallery improvements */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .gallery-item {
+    height: 250px;
+    border-radius: 8px;
+  }
+}
+
+/* Mobile testimonials */
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .testimonial-card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
