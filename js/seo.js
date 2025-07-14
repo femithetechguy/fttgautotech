@@ -255,6 +255,10 @@ class SEOManager {
 
     // Generate sitemap data
     generateSitemapData() {
+        const baseUrl = window.location.hostname === 'fttgautotech.com' 
+            ? 'https://fttgautotech.com'
+            : window.location.origin;
+            
         const pages = [
             { url: '', priority: 1.0, changefreq: 'weekly' },
             { url: '#services', priority: 0.8, changefreq: 'monthly' },
@@ -265,13 +269,17 @@ class SEOManager {
 
         return pages.map(page => ({
             ...page,
-            url: window.location.origin + '/' + page.url,
+            url: baseUrl + (page.url ? '/' + page.url : ''),
             lastmod: new Date().toISOString().split('T')[0]
         }));
     }
 
     // Add breadcrumb structured data
     addBreadcrumbStructuredData() {
+        const baseUrl = window.location.hostname === 'fttgautotech.com' 
+            ? 'https://fttgautotech.com'
+            : window.location.origin;
+            
         const breadcrumbData = {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -280,7 +288,7 @@ class SEOManager {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Home",
-                    "item": "https://fttgautotech.com"
+                    "item": baseUrl
                 }
             ]
         };
