@@ -1,0 +1,125 @@
+{
+  "services": [
+    {
+      "id": "oil-change",
+      "name": "Oil Change",
+      "category": "maintenance",
+      "mobileAvailable": true,
+      "estimatedDuration": 30,
+      "priceRange": "$35-65",
+      "description": "Full synthetic or conventional oil change with filter replacement",
+      "includes": [
+        "Oil filter replacement",
+        "Fluid level check",
+        "Visual inspection"
+      ]
+    },
+    {
+      "id": "brake-service",
+      "name": "Brake Service",
+      "category": "safety",
+      "mobileAvailable": true,
+      "estimatedDuration": 90,
+      "priceRange": "$150-400",
+      "description": "Complete brake system inspection and repair",
+      "includes": [
+        "Brake pad replacement",
+        "Rotor inspection",
+        "Brake fluid check",
+        "System testing"
+      ]
+    },
+    {
+      "id": "engine-diagnostics",
+      "name": "Engine Diagnostics",
+      "category": "diagnostic",
+      "mobileAvailable": true,
+      "estimatedDuration": 60,
+      "priceRange": "$100-150",
+      "description": "Computer diagnostic scan and analysis",
+      "includes": [
+        "OBD-II scan",
+        "Error code analysis",
+        "Performance testing",
+        "Detailed report"
+      ]
+    },
+    {
+      "id": "tire-service",
+      "name": "Tire Service",
+      "category": "maintenance",
+      "mobileAvailable": true,
+      "estimatedDuration": 45,
+      "priceRange": "$25-200",
+      "description": "Tire rotation, balancing, and replacement",
+      "includes": [
+        "Tire pressure check",
+        "Rotation service",
+        "Balance and alignment check",
+        "Wear pattern analysis"
+      ]
+    },
+    {
+      "id": "battery-service",
+      "name": "Battery Service",
+      "category": "electrical",
+      "mobileAvailable": true,
+      "estimatedDuration": 30,
+      "priceRange": "$50-200",
+      "description": "Battery testing, cleaning, and replacement",
+      "includes": [
+        "Battery load test",
+        "Terminal cleaning",
+        "Charging system check",
+        "Installation if needed"
+      ]
+    },
+    {
+      "id": "transmission-service",
+      "name": "Transmission Service",
+      "category": "major",
+      "mobileAvailable": false,
+      "estimatedDuration": 120,
+      "priceRange": "$200-800",
+      "description": "Transmission fluid change and system service",
+      "includes": [
+        "Fluid replacement",
+        "Filter replacement",
+        "System flush",
+        "Performance testing"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "maintenance",
+      "name": "Maintenance",
+      "description": "Regular vehicle maintenance services",
+      "icon": "bi-tools"
+    },
+    {
+      "id": "safety",
+      "name": "Safety",
+      "description": "Critical safety system repairs",
+      "icon": "bi-shield-check"
+    },
+    {
+      "id": "diagnostic",
+      "name": "Diagnostics",
+      "description": "Computer diagnostics and troubleshooting",
+      "icon": "bi-laptop"
+    },
+    {
+      "id": "electrical",
+      "name": "Electrical",
+      "description": "Electrical system services",
+      "icon": "bi-lightning"
+    },
+    {
+      "id": "major",
+      "name": "Major Repairs",
+      "description": "Complex mechanical repairs",
+      "icon": "bi-gear"
+    }
+  ]
+}

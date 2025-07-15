@@ -1,0 +1,200 @@
+{
+  "consent": {
+    "pageTitle": "SMS & Phone Communication Consent",
+    "pageDescription": "Your privacy and communication preferences matter to us. Learn about how we use SMS and phone communications.",
+    "hero": {
+      "title": "Communication Consent",
+      "subtitle": "Transparent. Secure. Respectful.",
+      "description": "At FTTG AutoTech, we believe in clear communication and respecting your privacy preferences."
+    },
+    "sections": {
+      "whatWeCollect": {
+        "title": "What Information We Collect",
+        "icon": "bi-info-circle",
+        "content": [
+          {
+            "type": "text",
+            "value": "When you provide your phone number and consent to SMS communications, we collect:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Your phone number for service-related communications",
+              "Your name for personalized messages",
+              "Service appointment details for confirmations and reminders",
+              "Location information for mobile service coordination",
+              "Communication preferences and opt-in/opt-out status"
+            ]
+          }
+        ]
+      },
+      "howWeUse": {
+        "title": "How We Use Your Information",
+        "icon": "bi-gear",
+        "content": [
+          {
+            "type": "text",
+            "value": "We use your phone number and information exclusively for:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Appointment confirmations and scheduling updates",
+              "Service reminders and follow-up communications",
+              "Emergency assistance and urgent service notifications",
+              "Service completion notifications and feedback requests",
+              "Two-way communication for service-related questions"
+            ]
+          },
+          {
+            "type": "important",
+            "value": "We will NEVER use your information for spam, marketing to third parties, or non-service related communications without explicit consent."
+          }
+        ]
+      },
+      "yourRights": {
+        "title": "Your Rights & Control",
+        "icon": "bi-shield-check",
+        "content": [
+          {
+            "type": "text",
+            "value": "You have complete control over your communication preferences:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Opt out at any time by replying 'STOP' to any SMS",
+              "Opt back in by replying 'START' or 'YES' to our number",
+              "Change your preferences by contacting us directly",
+              "Request deletion of your phone number from our records",
+              "Ask questions about how your information is used"
+            ]
+          }
+        ]
+      },
+      "messageFrequency": {
+        "title": "Message Frequency & Charges",
+        "icon": "bi-phone",
+        "content": [
+          {
+            "type": "text",
+            "value": "Message frequency and charges:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Message frequency varies based on your service appointments",
+              "Typically 1-3 messages per service appointment",
+              "No more than 2 reminder messages per month unless requested",
+              "Emergency or urgent messages as needed for your safety",
+              "Standard message and data rates may apply from your carrier"
+            ]
+          },
+          {
+            "type": "note",
+            "value": "FTTG AutoTech does not charge for SMS messages, but your mobile carrier's standard rates apply."
+          }
+        ]
+      },
+      "dataProtection": {
+        "title": "Data Protection & Security",
+        "icon": "bi-lock",
+        "content": [
+          {
+            "type": "text",
+            "value": "Your information is protected through:"
+          },
+          {
+            "type": "list",
+            "items": [
+              "Encrypted transmission and storage of all phone numbers",
+              "Access limited to authorized FTTG AutoTech staff only",
+              "Regular security audits and updates",
+              "Compliance with telecommunications privacy laws",
+              "Secure deletion of data upon request"
+            ]
+          }
+        ]
+      },
+      "consentOptions": {
+        "title": "Consent Options",
+        "icon": "bi-check-circle",
+        "content": [
+          {
+            "type": "text",
+            "value": "Choose your communication preferences:"
+          },
+          {
+            "type": "options",
+            "items": [
+              {
+                "id": "full-consent",
+                "title": "Full SMS Communication",
+                "description": "Receive appointment confirmations, reminders, and service updates via SMS",
+                "recommended": true
+              },
+              {
+                "id": "essential-only",
+                "title": "Essential Communications Only",
+                "description": "Receive only critical appointment confirmations and emergency communications"
+              },
+              {
+                "id": "voice-only",
+                "title": "Voice Calls Only",
+                "description": "Prefer phone calls over SMS for all communications"
+              },
+              {
+                "id": "no-consent",
+                "title": "No SMS/Phone Marketing",
+                "description": "Contact via email only, except for emergency situations"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "contact": {
+      "title": "Questions About Communication Consent?",
+      "description": "We're here to help clarify any questions about how we communicate with you.",
+      "methods": [
+        {
+          "type": "phone",
+          "label": "Call Us",
+          "value": "+1 (855) 578-4334",
+          "icon": "bi-telephone"
+        },
+        {
+          "type": "email",
+          "label": "Email Us",
+          "value": "privacy@fttgautotech.com",
+          "icon": "bi-envelope"
+        },
+        {
+          "type": "address",
+          "label": "Visit Us",
+          "value": "Metro Atlanta, GA",
+          "icon": "bi-geo-alt"
+        }
+      ]
+    },
+    "legalInfo": {
+      "title": "Legal Information",
+      "content": [
+        {
+          "type": "text",
+          "value": "By providing your phone number and consenting to SMS communications, you agree to receive text messages from FTTG AutoTech. This consent is not required to purchase services."
+        },
+        {
+          "type": "text",
+          "value": "Message and data rates may apply. Message frequency varies. Reply STOP to opt out or HELP for help."
+        },
+        {
+          "type": "text", 
+          "value": "For customer service, call +1 (855) 578-4334 or email support@fttgautotech.com"
+        }
+      ],
+      "lastUpdated": "July 15, 2025",
+      "version": "1.0"
+    }
+  }
+}
