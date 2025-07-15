@@ -85,8 +85,9 @@ class FTTGAutoTechApp {
         this.renderServices();
         this.renderFeatures();
         this.renderBookingForm();
+        this.renderServiceArea();
         this.renderContact();
-        this.renderFooter();
+        // Footer is now handled by dedicated footer.js component
     }
 
     renderNavigation() {
@@ -386,70 +387,30 @@ class FTTGAutoTechApp {
         }
     }
 
-    renderCarSelectionFields() {
-        if (!this.carData?.carData) {
-            // Fallback to simple text input if car data not available
-            return `
-                <div class="form-group">
-                    <label for="car-make-model">Car Make/Model *</label>
-                    <input 
-                        type="text" 
-                        name="car-make-model" 
-                        id="car-make-model"
-                        placeholder="Enter your car make and model" 
-                        class="form-input" 
-                        required
-                    >
-                </div>
-            `;
-        }
-
-        const carData = this.carData.carData;
-        
-        return `
-            <div class="form-group">
-                <label for="car-make">Car Make *</label>
-                <select name="car-make" id="car-make" class="form-select" required onchange="window.app.updateModelOptions(this.value)">
-                    <option value="">Select Car Make</option>
-                    ${carData.makes.map(make => `<option value="${make}">${make}</option>`).join('')}
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="car-model">Car Model *</label>
-                <select name="car-model" id="car-model" class="form-select" required disabled>
-                    <option value="">Select Make First</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="car-year">Car Year *</label>
-                <select name="car-year" id="car-year" class="form-select" required>
-                    <option value="">Select Year</option>
-                    ${carData.years.map(year => `<option value="${year}">${year}</option>`).join('')}
-                </select>
-            </div>
-        `;
-    }
-
-    updateModelOptions(selectedMake) {
-        const modelSelect = document.getElementById('car-model');
-        if (!modelSelect || !this.carData?.carData?.models[selectedMake]) {
+    renderServiceArea() {
+        const serviceArea = this.appData?.serviceArea;
+        if (!serviceArea) {
+            console.warn('Service area data not available, using fallbacks');
             return;
         }
 
-        const models = this.carData.carData.models[selectedMake];
-        
-        modelSelect.innerHTML = `
-            <option value="">Select Model</option>
-            ${models.map(model => `<option value="${model}">${model}</option>`).join('')}
-        `;
-        
-        modelSelect.disabled = false;
-        
-        // Add visual feedback
-        modelSelect.classList.add('updated');
-        setTimeout(() => modelSelect.classList.remove('updated'), 300);
+        // Update service area title
+        const titleElement = document.getElementById('service-area-title');
+        if (titleElement) {
+            titleElement.textContent = serviceArea.title || 'Service Area';
+        }
+
+        // Update service area description
+        const descriptionElement = document.getElementById('service-area-description');
+        if (descriptionElement) {
+            descriptionElement.textContent = serviceArea.description || 'We proudly serve the entire Metro Atlanta area';
+        }
+
+        // Update map placeholder
+        const mapElement = document.getElementById('service-area-map');
+        if (mapElement) {
+            mapElement.textContent = serviceArea.mapPlaceholder || 'Google Map Integration Coming Soon';
+        }
     }
 
     renderContact() {
@@ -491,89 +452,6 @@ class FTTGAutoTechApp {
         }
     }
 
-    renderFooter() {
-        const business = this.appData?.business;
-        const contact = this.appData?.contact;
-        const navigation = this.appData?.navigation;
-        const footer = this.appData?.footer;
-
-        // Footer title and tagline
-        const footerTitle = document.getElementById('footer-title');
-        const footerTagline = document.getElementById('footer-tagline');
-        
-        if (footerTitle && business?.name) {
-            footerTitle.textContent = business.name;
-        }
-        
-        if (footerTagline && business?.tagline) {
-            footerTagline.textContent = business.tagline;
-        }
-
-        // Footer links
-        const footerLinks = document.getElementById('footer-links');
-        if (footerLinks && navigation) {
-            footerLinks.innerHTML = navigation
-                .filter(item => !item.optional)
-                .map(item => `
-                    <a href="${item.url}" class="text-gray-300 hover:text-accent transition-colors">${item.section}</a>
-                `).join('');
-        }
-
-        // Footer contact
-        const footerContact = document.getElementById('footer-contact');
-        if (footerContact && contact) {
-            footerContact.innerHTML = `
-                <p class="flex items-center mb-2">
-                    <i class="bi bi-telephone mr-2"></i>
-                    ${contact.phone}
-                </p>
-                <p class="flex items-center mb-2">
-                    <i class="bi bi-envelope mr-2"></i>
-                    ${contact.emails.general}
-                </p>
-                <p class="flex items-center">
-                    <i class="bi bi-geo-alt mr-2"></i>
-                    ${contact.serviceArea}
-                </p>
-            `;
-        }
-
-        // Update footer copyright section
-        const footerCopyright = document.querySelector('footer .border-t');
-        if (footerCopyright && footer) {
-            // Always use current year when set to "dynamic" or if no year is specified
-            const currentYear = new Date().getFullYear();
-            const displayYear = footer.copyright?.year === 'dynamic' || !footer.copyright?.year ? currentYear : footer.copyright.year;
-            
-            // Generate social media links
-            const socialLinksHtml = footer.socialLinks ? `
-                <div class="footer-social-links">
-                    ${footer.socialLinks.map(link => `
-                        <a href="${link.url}" target="_blank" rel="noopener noreferrer" aria-label="${link.platform}">
-                            <i class="bi ${link.icon}"></i>
-                        </a>
-                    `).join('')}
-                </div>
-            ` : '';
-            
-            footerCopyright.innerHTML = `
-                <div class="border-t border-gray-600 mt-8 pt-8 text-center text-gray-300">
-                    <div class="flex flex-col md:flex-row justify-between items-center mb-4">
-                        <p>&copy; ${displayYear} ${business?.name || 'FTTG AutoTech'}. ${footer.copyright?.text || 'All rights reserved.'}</p>
-                        ${footer.createdBy ? `
-                            <p class="mt-2 md:mt-0">
-                                <a href="${footer.createdBy.url}" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-orange-400 transition-colors">
-                                    ${footer.createdBy.text}
-                                </a>
-                            </p>
-                        ` : ''}
-                    </div>
-                    ${socialLinksHtml}
-                </div>
-            `;
-        }
-    }
-
     setupEventListeners() {
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -601,14 +479,18 @@ class FTTGAutoTechApp {
 
         // Smooth scrolling for navigation links
         document.addEventListener('click', (e) => {
-            if (e.target.matches('a[href^="#"]')) {
+            if (e.target.matches('a[href^="#"]') || e.target.closest('a[href^="#"]')) {
                 e.preventDefault();
-                const target = document.querySelector(e.target.getAttribute('href'));
+                const link = e.target.matches('a[href^="#"]') ? e.target : e.target.closest('a[href^="#"]');
+                const target = document.querySelector(link.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth' });
                     
                     // Close mobile menu if open
                     this.closeMobileMenu();
+                    
+                    // Update active navigation state
+                    this.updateActiveNavigation(link.getAttribute('href').substring(1));
                 }
             }
         });
@@ -708,6 +590,20 @@ class FTTGAutoTechApp {
             // Restore body scroll
             document.body.style.overflow = '';
         }
+    }
+
+    updateActiveNavigation(sectionId) {
+        // Remove active class from all navigation links
+        const allLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+        allLinks.forEach(link => {
+            link.classList.remove('active', 'current');
+        });
+        
+        // Add active class to current section links
+        const currentLinks = document.querySelectorAll(`[data-section="${sectionId}"], [href="#${sectionId}"]`);
+        currentLinks.forEach(link => {
+            link.classList.add('active', 'current');
+        });
     }
 
     handleBookingSubmission(form) {

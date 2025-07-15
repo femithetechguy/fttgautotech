@@ -9,7 +9,7 @@ const structuredData = {
     "image": "https://fttgautotech.com/images/logo.png",
     "url": "https://fttgautotech.com",
     "telephone": "111-222-3333",
-    "email": "contact@fttgautotech.com",
+    "email": "support@fttgautotech.com",
     "address": {
         "@type": "PostalAddress",
         "addressRegion": "GA",

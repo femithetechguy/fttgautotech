@@ -120,7 +120,7 @@ All website content is controlled by `json/app.json`. Key sections include:
   "contact": {
     "phone": "111-222-3333",
     "emails": {
-      "general": "contact@fttgautotech.com",
+      "general": "support@fttgautotech.com",
       "support": "support@fttgautotech.com"
     },
     "serviceArea": "Metro Atlanta"
@@ -243,7 +243,7 @@ This project is created for FTTG AutoTech. All rights reserved.
 ## 📞 Contact
 
 - **Phone**: [111-222-3333](tel:111-222-3333)
-- **Email**: [contact@fttgautotech.com](mailto:contact@fttgautotech.com)
+- **Email**: [support@fttgautotech.com](mailto:support@fttgautotech.com)
 - **Service Area**: Metro Atlanta
 
 ## 🗓️ Version History
