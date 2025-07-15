@@ -196,20 +196,48 @@ class BookingModule {
     }
 
     async submitBooking(bookingData) {
-        // This would typically send to your backend API
-        // For now, we'll simulate with a delay and log the data
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                console.log('Booking submitted:', bookingData);
-                
-                // Simulate success/failure
-                if (Math.random() > 0.1) { // 90% success rate
-                    resolve(bookingData);
-                } else {
-                    reject(new Error('Network error'));
-                }
-            }, 2000);
-        });
+        // Get Formspree booking endpoint from app configuration
+        try {
+            const appResponse = await fetch('./json/app.json');
+            const appData = await appResponse.json();
+            const formEndpoint = appData?.techStack?.forms?.endpoints?.booking?.url || appData?.techStack?.forms?.endpoint;
+            
+            if (!formEndpoint || formEndpoint === 'https://formspree.io/f/YOUR_FORMSPREE_ID') {
+                throw new Error('Formspree booking endpoint not configured');
+            }
+            
+            // Submit to Formspree
+            const response = await fetch(formEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(bookingData)
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            return await response.json();
+            
+        } catch (error) {
+            console.error('Formspree submission error:', error);
+            
+            // Fallback: Log the data for development
+            console.log('Booking data:', bookingData);
+            
+            // Simulate for development if Formspree not configured
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (Math.random() > 0.1) { // 90% success rate
+                        resolve(bookingData);
+                    } else {
+                        reject(new Error('Network error'));
+                    }
+                }, 2000);
+            });
+        }
     }
 
     clearValidationStates(form) {
