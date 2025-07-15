@@ -151,11 +151,28 @@ class FTTGAutoTechApp {
         // Update CTA buttons
         const ctaElement = document.getElementById('hero-cta');
         if (ctaElement && hero.cta) {
-            ctaElement.innerHTML = hero.cta.map((cta, index) => `
-                <a href="#booking" class="hero-btn ${index === 0 ? 'hero-btn-primary' : 'hero-btn-secondary'} inline-block px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:transform hover:scale-105" data-mobile-direct="true">
-                    ${cta}
-                </a>
-            `).join('');
+            ctaElement.innerHTML = hero.cta.map((cta, index) => {
+                let href = '#booking';
+                let buttonClass = index === 0 ? 'hero-btn-primary' : 'hero-btn-secondary';
+                let buttonText = cta;
+                
+                // Add icons for each button type
+                if (cta.toLowerCase().includes('book a service')) {
+                    buttonText = `<i class="bi bi-calendar-check mr-2"></i>${cta}`;
+                } else if (cta.toLowerCase().includes('get a free estimate')) {
+                    buttonText = `<i class="bi bi-clipboard-check mr-2"></i>${cta}`;
+                } else if (cta.toLowerCase().includes('speak to a technician')) {
+                    href = `tel:${this.appData?.contact?.phone || '111-222-3333'}`;
+                    buttonClass = 'hero-btn-tertiary';
+                    buttonText = `<i class="bi bi-telephone mr-2"></i>${cta}`;
+                }
+                
+                return `
+                    <a href="${href}" class="hero-btn ${buttonClass} inline-block px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:transform hover:scale-105" data-mobile-direct="true">
+                        ${buttonText}
+                    </a>
+                `;
+            }).join('');
         }
     }
 

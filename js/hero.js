@@ -131,11 +131,28 @@ class HeroModule {
             this.heroSubtitle.textContent = subtitle;
         }
         if (this.heroCTA && cta) {
-            this.heroCTA.innerHTML = cta.map((text, index) => `
-                <a href="#booking" class="hero-btn ${index === 0 ? 'hero-btn-primary' : 'hero-btn-secondary'}">
-                    ${text}
-                </a>
-            `).join('');
+            this.heroCTA.innerHTML = cta.map((text, index) => {
+                let href = '#booking';
+                let buttonClass = index === 0 ? 'hero-btn-primary' : 'hero-btn-secondary';
+                let buttonText = text;
+                
+                // Add icons for each button type
+                if (text.toLowerCase().includes('book a service')) {
+                    buttonText = `<i class="bi bi-calendar-check mr-2"></i>${text}`;
+                } else if (text.toLowerCase().includes('get a free estimate')) {
+                    buttonText = `<i class="bi bi-clipboard-check mr-2"></i>${text}`;
+                } else if (text.toLowerCase().includes('speak to a technician')) {
+                    href = 'tel:111-222-3333'; // Default phone number
+                    buttonClass = 'hero-btn-tertiary';
+                    buttonText = `<i class="bi bi-telephone mr-2"></i>${text}`;
+                }
+                
+                return `
+                    <a href="${href}" class="hero-btn ${buttonClass}">
+                        ${buttonText}
+                    </a>
+                `;
+            }).join('');
         }
         
         // Re-run animations
