@@ -124,11 +124,6 @@
     font-size: 1.125rem;
     margin-bottom: 1.5rem;
   }
-  
-  .hero-btn {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
-  }
 }
 
 @media (max-width: 640px) {
@@ -138,12 +133,5 @@
   
   .hero-subtitle {
     font-size: 1rem;
-  }
-  
-  .hero-btn {
-    display: block;
-    margin: 0.5rem auto;
-    width: 200px;
-    text-align: center;
   }
 }

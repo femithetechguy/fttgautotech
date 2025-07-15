@@ -1,87 +1,183 @@
-<!-- Google Analytics 4 - Replace GA_MEASUREMENT_ID with your actual ID -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Analytics Template - FTTG AutoTech</title>
+    
+    <!-- 
+    ====================================================================
+    SEO Analytics Integration Template
+    ====================================================================
+    
+    This file contains template code for integrating analytics and SEO 
+    tracking into your FTTG AutoTech website. Copy the relevant sections
+    to your main HTML files.
+    
+    REPLACE ALL PLACEHOLDER IDs WITH YOUR ACTUAL ACCOUNT IDs:
+    - GA_MEASUREMENT_ID: Your Google Analytics 4 Measurement ID
+    - GTM_CONTAINER_ID: Your Google Tag Manager Container ID  
+    - FB_PIXEL_ID: Your Facebook Pixel ID
+    ====================================================================
+    -->
+</head>
+<body>
+
+<!-- ====================================================================
+     GOOGLE ANALYTICS 4 (GA4) INTEGRATION
+     ====================================================================
+     Add this code to the <head> section of your HTML files BEFORE the closing </head> tag
+     Replace GA_MEASUREMENT_ID with your actual GA4 Measurement ID (starts with G-)
+     ==================================================================== -->
+
+<!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'GA_MEASUREMENT_ID', {
-    page_title: document.title,
-    page_location: window.location.href,
-    send_page_view: true
+    'page_title': 'FTTG AutoTech - Professional Auto Repair Atlanta',
+    'page_location': window.location.href,
+    'custom_map': {
+      'custom_parameter_1': 'automotive_service',
+      'custom_parameter_2': 'atlanta_auto_repair'
+    }
   });
-
-  // Track form submissions
-  function trackFormSubmission(formType) {
-    gtag('event', 'form_submit', {
-      event_category: 'engagement',
-      event_label: formType,
-      value: 1
-    });
-  }
-
-  // Track phone clicks
-  function trackPhoneClick() {
-    gtag('event', 'phone_click', {
-      event_category: 'contact',
-      event_label: 'phone_number',
-      value: 1
-    });
-  }
-
-  // Track service selections
-  function trackServiceSelection(service) {
-    gtag('event', 'service_selection', {
-      event_category: 'engagement',
-      event_label: service,
-      value: 1
-    });
-  }
 </script>
 
-<!-- Google Tag Manager (optional) - Replace GTM-XXXXXXX with your container ID -->
-<!--
+<!-- ====================================================================
+     GOOGLE TAG MANAGER (GTM) INTEGRATION
+     ====================================================================
+     Alternative to direct GA4 integration. Use GTM if you want more control
+     over tracking and marketing tags. Replace GTM_CONTAINER_ID with your
+     actual GTM Container ID (starts with GTM-)
+     ==================================================================== -->
+
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
--->
+})(window,document,'script','dataLayer','GTM_CONTAINER_ID');</script>
+<!-- End Google Tag Manager -->
 
-<!-- Schema.org Local Business Structured Data (Enhanced) -->
+<!-- Google Tag Manager (noscript) - Add this immediately after opening <body> tag -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM_CONTAINER_ID"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ====================================================================
+     FACEBOOK PIXEL INTEGRATION
+     ====================================================================
+     For Facebook advertising and tracking. Replace FB_PIXEL_ID with your
+     actual Facebook Pixel ID
+     ==================================================================== -->
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'FB_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" 
+src="https://www.facebook.com/tr?id=FB_PIXEL_ID&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- ====================================================================
+     STRUCTURED DATA (JSON-LD) - LOCAL BUSINESS SCHEMA
+     ====================================================================
+     SEO structured data for local automotive business. This helps search
+     engines understand your business better.
+     ==================================================================== -->
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "AutoRepair",
+  "@type": "LocalBusiness",
+  "@id": "https://fttgautotech.com#organization",
   "name": "FTTG AutoTech",
-  "description": "Professional auto repair and mobile car service in Metro Atlanta with ASE certified technicians, transparent pricing, and quality warranties.",
-  "image": [
-    "https://fttgautotech.com/image/logo.png",
-    "https://fttgautotech.com/images/shop-exterior.jpg",
-    "https://fttgautotech.com/images/mobile-service.jpg"
-  ],
+  "alternateName": "FTTG Auto Tech",
+  "description": "Professional automotive repair and maintenance services in Metro Atlanta. Expert technicians providing quality car care with precision, passion, and performance.",
   "url": "https://fttgautotech.com",
-  "telephone": "111-222-3333",
-  "email": "support@fttgautotech.com",
+  "telephone": "+18555784334",
+  "email": "info@fttgautotech.com",
   "address": {
     "@type": "PostalAddress",
+    "addressLocality": "Atlanta",
     "addressRegion": "GA",
     "addressCountry": "US",
-    "addressLocality": "Atlanta",
-    "postalCode": "30309"
+    "areaServed": "Metro Atlanta"
   },
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": "33.7490",
     "longitude": "-84.3880"
   },
+  "image": [
+    "https://fttgautotech.com/image/logo.png",
+    "https://fttgautotech.com/images/shop-exterior.jpg",
+    "https://fttgautotech.com/images/mobile-service.jpg"
+  ],
+  "logo": "https://fttgautotech.com/image/logo.png",
   "openingHours": [
     "Mo-Fr 08:00-18:00",
-    "Sa 08:00-16:00"
+    "Sa 09:00-17:00"
   ],
   "priceRange": "$$",
-  "paymentAccepted": ["Cash", "Credit Card", "Check"],
   "currenciesAccepted": "USD",
+  "paymentAccepted": "Cash, Credit Card, Debit Card",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Automotive Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Oil Change",
+          "description": "Quick and professional oil change service"
+        }
+      },
+      {
+        "@type": "Offer", 
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Brake Service",
+          "description": "Brake inspection, repair, and replacement"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service", 
+          "name": "Engine Diagnostics",
+          "description": "Computer diagnostics and engine repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Tire Service", 
+          "description": "Tire installation, rotation, and alignment"
+        }
+      }
+    ]
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Georgia"
+  },
   "serviceArea": {
     "@type": "GeoCircle",
     "geoMidpoint": {
@@ -89,102 +185,158 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "latitude": "33.7490",
       "longitude": "-84.3880"
     },
-    "geoRadius": "25000"
+    "geoRadius": "50000"
   },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Auto Repair Services",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Oil Change Service",
-          "description": "Professional oil change with quality oil and filter replacement",
-          "provider": {
-            "@type": "AutoRepair",
-            "name": "FTTG AutoTech"
-          }
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Brake Repair & Maintenance",
-          "description": "Complete brake system inspection, repair, and maintenance services",
-          "provider": {
-            "@type": "AutoRepair",
-            "name": "FTTG AutoTech"
-          }
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Engine Diagnostics",
-          "description": "Advanced computer diagnostics to identify and resolve engine issues",
-          "provider": {
-            "@type": "AutoRepair",
-            "name": "FTTG AutoTech"
-          }
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Mobile Auto Service",
-          "description": "Convenient mobile auto repair and maintenance at your location",
-          "provider": {
-            "@type": "AutoRepair",
-            "name": "FTTG AutoTech"
-          }
-        }
-      }
-    ]
-  },
+  "sameAs": [
+    "https://www.facebook.com/fttgautotech",
+    "https://www.instagram.com/fttgautotech", 
+    "https://www.linkedin.com/company/fttgautotech"
+  ],
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "150",
+    "ratingValue": "4.8",
+    "reviewCount": "127",
     "bestRating": "5",
     "worstRating": "1"
-  },
-  "review": [
-    {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "John D."
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "reviewBody": "Excellent service and fair pricing. They fixed my brake issue quickly and professionally. Highly recommend!"
-    },
-    {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "Sarah M."
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "reviewBody": "Love their mobile service! They came to my office and changed my oil while I worked. So convenient!"
-    }
-  ],
-  "sameAs": [
-    "https://www.facebook.com/FTTGAutoTech",
-    "https://www.instagram.com/fttgautotech",
-    "https://www.youtube.com/@fttgautotech",
-    "https://www.linkedin.com/company/fttgautotech"
-  ]
+  }
 }
 </script>
+
+<!-- ====================================================================
+     EVENT TRACKING FUNCTIONS
+     ====================================================================
+     Custom JavaScript functions for tracking user interactions
+     ==================================================================== -->
+
+<script>
+// Enhanced event tracking for automotive business
+function trackAutoServiceEvent(action, service, value) {
+    // Google Analytics 4 Enhanced Ecommerce
+    if (typeof gtag !== 'undefined') {
+        gtag('event', action, {
+            'event_category': 'automotive_service',
+            'event_label': service,
+            'value': value,
+            'currency': 'USD',
+            'custom_parameter_1': 'auto_repair',
+            'custom_parameter_2': 'atlanta'
+        });
+    }
+    
+    // Facebook Pixel Custom Events
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+            'content_name': service,
+            'content_category': 'Automotive Service',
+            'value': value,
+            'currency': 'USD'
+        });
+    }
+    
+    // Google Tag Manager Custom Events
+    if (typeof dataLayer !== 'undefined') {
+        dataLayer.push({
+            'event': 'auto_service_interaction',
+            'service_type': service,
+            'interaction_type': action,
+            'service_value': value
+        });
+    }
+}
+
+// Track form submissions
+function trackFormSubmission(formType, formData) {
+    trackAutoServiceEvent('form_submit', formType, 0);
+    
+    // Additional form-specific tracking
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'generate_lead', {
+            'event_category': 'form',
+            'event_label': formType,
+            'value': 0
+        });
+    }
+}
+
+// Track phone calls
+function trackPhoneCall() {
+    trackAutoServiceEvent('phone_call', 'contact', 0);
+}
+
+// Track service bookings
+function trackServiceBooking(serviceType, estimatedValue) {
+    trackAutoServiceEvent('book_service', serviceType, estimatedValue);
+}
+
+// Track page sections viewed (for engagement)
+function trackSectionView(sectionName) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'scroll', {
+            'event_category': 'engagement',
+            'event_label': sectionName,
+            'custom_parameter_1': 'section_view'
+        });
+    }
+}
+</script>
+
+<!-- ====================================================================
+     IMPLEMENTATION INSTRUCTIONS
+     ====================================================================
+     
+     TO IMPLEMENT THIS IN YOUR WEBSITE:
+     
+     1. GET YOUR TRACKING IDs:
+        - Google Analytics: https://analytics.google.com
+        - Facebook Pixel: https://business.facebook.com/events_manager
+        - Google Tag Manager: https://tagmanager.google.com
+     
+     2. REPLACE PLACEHOLDERS:
+        - GA_MEASUREMENT_ID → Your GA4 ID (G-XXXXXXXXXX)
+        - GTM_CONTAINER_ID → Your GTM ID (GTM-XXXXXXX)
+        - FB_PIXEL_ID → Your Pixel ID (numbers only)
+     
+     3. ADD TO YOUR HTML FILES:
+        - Copy Google Analytics code to <head> section
+        - Copy GTM code to <head> and <body> sections
+        - Copy structured data to <head> section
+        - Copy event tracking functions to <body> section
+     
+     4. TEST YOUR IMPLEMENTATION:
+        - Use Google Analytics Real-Time reports
+        - Use Facebook Pixel Helper browser extension
+        - Use Google Tag Assistant for GTM
+        - Test structured data with Google Rich Results Test
+     
+     5. VERIFY TRACKING:
+        - Check Google Analytics for pageviews
+        - Verify events are firing correctly
+        - Test form submissions and phone calls
+        - Monitor conversion tracking
+     
+     ==================================================================== -->
+
+<div style="padding: 20px; background: #f5f5f5; margin: 20px; border-radius: 8px;">
+    <h2>🔧 SEO Analytics Template</h2>
+    <p><strong>This is a template file</strong> - copy the relevant code sections to your actual HTML files.</p>
+    
+    <h3>📋 Implementation Checklist:</h3>
+    <ul>
+        <li>✅ Replace all placeholder IDs with your actual tracking IDs</li>
+        <li>✅ Add Google Analytics code to all pages</li>
+        <li>✅ Add structured data for better SEO</li>
+        <li>✅ Test tracking with browser developer tools</li>
+        <li>✅ Verify events are firing correctly</li>
+    </ul>
+    
+    <h3>🎯 Key Benefits:</h3>
+    <ul>
+        <li><strong>SEO Optimization:</strong> Structured data helps search engines understand your business</li>
+        <li><strong>Conversion Tracking:</strong> Monitor form submissions and phone calls</li>
+        <li><strong>Performance Insights:</strong> Track user engagement and popular services</li>
+        <li><strong>Marketing ROI:</strong> Measure effectiveness of advertising campaigns</li>
+    </ul>
+</div>
+
+</body>
+</html>

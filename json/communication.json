@@ -1,0 +1,90 @@
+{
+  "communication": {
+    "twilio": {
+      "enabled": true,
+      "features": {
+        "sms": {
+          "enabled": true,
+          "appointmentConfirmation": true,
+          "reminders": true,
+          "marketing": false,
+          "twoWay": true
+        },
+        "voice": {
+          "enabled": true,
+          "emergencyContact": true,
+          "appointmentCalls": false
+        }
+      },
+      "config": {
+        "accountSid": "DISABLED_FOR_GITHUB_PAGES",
+        "authToken": "DISABLED_FOR_GITHUB_PAGES", 
+        "phoneNumber": "185557843343",
+        "webhookUrl": "/api/twilio/webhook",
+        "environment": "github-pages",
+        "note": "Twilio integration disabled for GitHub Pages deployment. Use Formspree for form submissions."
+      }
+    },
+    "defaultMessages": {
+      "sms": {
+        "appointmentConfirmation": "Hi {customerName}! Your appointment with FTTG AutoTech is confirmed for {date} at {time}. Service: {service}. Reply STOP to opt out.",
+        "appointmentReminder": "Reminder: Your FTTG AutoTech appointment is tomorrow at {time}. Service: {service}. Location: {location}. Questions? Call {businessPhone}",
+        "welcomeMessage": "Welcome to FTTG AutoTech! We've received your service request and will contact you within 24 hours. Save this number for updates!",
+        "serviceComplete": "Your {service} is complete! Thanks for choosing FTTG AutoTech. Please rate your experience: {feedbackLink}"
+      },
+      "voice": {
+        "emergencyGreeting": "Thank you for calling FTTG AutoTech emergency line. Please hold while we connect you to a technician.",
+        "businessHours": "Thank you for calling FTTG AutoTech. Our hours are Monday-Friday 8AM-6PM, Saturday 8AM-4PM. For emergencies, press 1."
+      }
+    },
+    "phoneNumbers": {
+      "business": "+185557843343",
+      "emergency": "+185557843343",
+      "sms": "+185557843343"
+    }
+  },
+  "forms": {
+    "booking": {
+      "fields": {
+        "required": ["name", "phone", "email", "service"],
+        "optional": ["vehicle", "location", "notes", "preferredDate", "preferredTime"]
+      },
+      "validation": {
+        "phone": {
+          "format": "US",
+          "required": true,
+          "smsOptIn": true
+        },
+        "email": {
+          "format": "standard",
+          "required": true
+        }
+      },
+      "notifications": {
+        "customer": {
+          "sms": true,
+          "email": true
+        },
+        "business": {
+          "sms": true,
+          "email": true
+        }
+      }
+    },
+    "contact": {
+      "fields": {
+        "required": ["name", "email", "message"],
+        "optional": ["phone", "subject"]
+      },
+      "notifications": {
+        "customer": {
+          "email": true
+        },
+        "business": {
+          "email": true,
+          "sms": false
+        }
+      }
+    }
+  }
+}

@@ -202,7 +202,7 @@ class SEOManager {
             "name": "FTTG AutoTech",
             "description": "Professional auto repair and mobile car service in Metro Atlanta with ASE certified technicians.",
             "url": "https://fttgautotech.com",
-            "telephone": "111-222-3333",
+            "telephone": "+185557843343",
             "email": "support@fttgautotech.com",
             "address": {
                 "@type": "PostalAddress",

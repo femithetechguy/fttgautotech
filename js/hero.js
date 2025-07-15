@@ -142,7 +142,10 @@ class HeroModule {
                 } else if (text.toLowerCase().includes('get a free estimate')) {
                     buttonText = `<i class="bi bi-clipboard-check mr-2"></i>${text}`;
                 } else if (text.toLowerCase().includes('speak to a technician')) {
-                    href = 'tel:111-222-3333'; // Default phone number
+                    // Format phone number for tel: link (remove dashes, spaces, etc.)
+                    const phoneNumber = '+185557843343'; // Default phone number
+                    const cleanPhone = phoneNumber.replace(/[^0-9+]/g, '');
+                    href = `tel:+1${cleanPhone}`;
                     buttonClass = 'hero-btn-tertiary';
                     buttonText = `<i class="bi bi-telephone mr-2"></i>${text}`;
                 }

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>SMS & Phone Communication Consent - FTTG AutoTech</title>
+    <meta name="description" content="Learn about FTTG AutoTech's SMS and phone communication practices. Your privacy and consent matter to us. Set your communication preferences.">
+    <meta name="keywords" content="SMS consent, phone communication, privacy policy, FTTG AutoTech, communication preferences, mobile service notifications">
+    <meta name="author" content="FTTG AutoTech">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SMS & Phone Communication Consent - FTTG AutoTech">
+    <meta property="og:description" content="Set your communication preferences with FTTG AutoTech. Learn about our SMS and phone communication practices.">
+    <meta property="og:image" content="https://fttgautotech.com/image/logo.png">
+    <meta property="og:url" content="https://fttgautotech.com/consent.html">
+    <meta property="og:site_name" content="FTTG AutoTech">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://fttgautotech.com/consent.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="image/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="image/logo.png">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#1D2A35">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/consent.css">
+</head>
+<body class="bg-gray-100 font-body">
+    <!-- Navigation -->
+    <nav id="navbar" class="bg-primary shadow-lg fixed w-full top-0 z-40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center space-x-2">
+                    <a href="index.html" class="text-white hover:text-accent transition-colors duration-300">
+                        <img src="image/logo.png" alt="FTTG AutoTech Logo" class="h-8 w-8 object-contain">
+                    </a>
+                    <a href="index.html" class="text-white font-heading font-bold text-xl hover:text-accent transition-colors duration-300">
+                        FTTG AutoTech
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="index.html" class="nav-link">
+                        <i class="bi bi-house-fill mr-1"></i>
+                        Home
+                    </a>
+                    <a href="index.html#services" class="nav-link">Services</a>
+                    <a href="index.html#about" class="nav-link">About</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                    <button onclick="document.getElementById('consent-form').scrollIntoView({behavior: 'smooth'})" 
+                            class="bg-accent text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition duration-300 font-medium">
+                        Set Preferences
+                    </button>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-accent focus:outline-none">
+                        <i class="bi bi-list text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-primary border-t border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-white hover:text-accent transition-colors duration-300">
+                    <i class="bi bi-house-fill mr-2"></i>Home
+                </a>
+                <a href="index.html#services" class="block px-3 py-2 text-white hover:text-accent transition-colors duration-300">Services</a>
+                <a href="index.html#about" class="block px-3 py-2 text-white hover:text-accent transition-colors duration-300">About</a>
+                <a href="index.html#contact" class="block px-3 py-2 text-white hover:text-accent transition-colors duration-300">Contact</a>
+                <button onclick="document.getElementById('consent-form').scrollIntoView({behavior: 'smooth'})" 
+                        class="block w-full text-left px-3 py-2 bg-accent text-white rounded mt-2">
+                    Set Preferences
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="bg-gradient-to-r from-slate-700 to-gray-700 text-white pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center">
+                <div class="mb-8">
+                    <i class="bi bi-shield-check text-6xl mb-4 text-gray-300"></i>
+                </div>
+                <h1 id="hero-title" class="text-4xl md:text-6xl font-bold font-heading mb-6 text-gray-100">Loading...</h1>
+                <p id="hero-subtitle" class="text-xl md:text-2xl mb-4 text-gray-400 font-heading">Loading...</p>
+                <p id="hero-description" class="text-lg mb-8 text-gray-400 max-w-3xl mx-auto">Loading...</p>
+                <button onclick="document.getElementById('consent-form').scrollIntoView({behavior: 'smooth'})" 
+                        class="bg-gray-600 text-gray-100 px-8 py-3 rounded-lg font-semibold hover:bg-gray-500 transition duration-300">
+                    Set Your Preferences
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Sections -->
+    <section id="content" class="py-16 bg-bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="consent-sections" class="space-y-16">
+                <!-- Content will be loaded dynamically from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Consent Form -->
+    <section id="consent-form" class="bg-white py-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 consent-form-container">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold font-heading text-gray-800 mb-6 form-title">SMS & Phone Communication Consent</h2>
+                <p class="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">A simple yes or no choice - your communication preferences matter to us.</p>
+                <div class="mt-6 flex justify-center">
+                    <div class="bg-slate-100 text-slate-700 px-6 py-3 rounded-full text-base font-medium">
+                        🔒 Your privacy is protected • Takes 30 seconds
+                    </div>
+                </div>
+            </div>
+
+            <form id="communication-consent-form" action="https://formspree.io/f/manbywaz" method="POST" class="space-y-10">
+                <!-- Simple Consent Choice -->
+                <div class="bg-gradient-to-br from-slate-50 to-gray-50 p-8 rounded-2xl border-2 border-gray-300 shadow-xl">
+                    <div class="text-center mb-8">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-slate-600 rounded-full mb-4">
+                            <i class="bi bi-chat-dots-fill text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold font-heading text-gray-800 mb-3">Your Consent Decision</h3>
+                        <p class="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto">
+                            Do you consent to receive SMS and phone communications from FTTG AutoTech for service-related purposes?
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6 max-w-lg mx-auto">
+                        <label class="flex items-start space-x-4 p-6 border-3 border-gray-300 rounded-xl hover:border-accent hover:bg-green-50 cursor-pointer transition-all duration-300 bg-white shadow-md hover:shadow-lg group">
+                            <input type="radio" name="consentChoice" value="consent" required
+                                   class="h-6 w-6 text-accent focus:ring-accent border-gray-400 mt-1 group-hover:border-accent">
+                            <div class="flex-1">
+                                <span class="text-xl font-semibold text-gray-800 group-hover:text-green-800">✅ I Consent</span>
+                                <p class="text-base text-gray-700 mt-2 leading-relaxed group-hover:text-green-700">
+                                    Yes, I agree to receive SMS and phone communications for appointments, service updates, and important notifications.
+                                </p>
+                                <div class="mt-3 text-sm text-green-700 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    📱 You'll receive helpful service reminders and updates
+                                </div>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-start space-x-4 p-6 border-3 border-gray-300 rounded-xl hover:border-red-400 hover:bg-red-50 cursor-pointer transition-all duration-300 bg-white shadow-md hover:shadow-lg group">
+                            <input type="radio" name="consentChoice" value="no-consent" required
+                                   class="h-6 w-6 text-red-600 focus:ring-red-400 border-gray-400 mt-1 group-hover:border-red-500">
+                            <div class="flex-1">
+                                <span class="text-xl font-semibold text-gray-800 group-hover:text-red-800">❌ I Do Not Consent</span>
+                                <p class="text-base text-gray-700 mt-2 leading-relaxed group-hover:text-red-700">
+                                    No, I prefer email communication only. Contact me via phone only for emergencies.
+                                </p>
+                                <div class="mt-3 text-sm text-red-700 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    📧 We'll use email for all non-emergency communications
+                                </div>
+                            </div>
+                        </label>
+                        
+                        <!-- Hidden fields for Formspree -->
+                        <input type="hidden" name="_subject" value="Communication Consent Submission - FTTG AutoTech">
+                        <input type="hidden" name="_next" id="redirect-url">
+                        <input type="hidden" name="_cc" value="info@fttgautotech.com">
+                        <input type="hidden" name="formType" value="Communication Consent">
+                        <input type="hidden" name="submissionDate" id="submission-date">
+                        <input type="hidden" name="pageUrl" id="page-url">
+                    </div>
+                </div>
+
+                <!-- Contact Information (Optional) -->
+                <div class="bg-gradient-to-br from-gray-50 to-slate-50 p-8 rounded-2xl border-2 border-gray-200 shadow-lg">
+                    <div class="text-center mb-6">
+                        <div class="inline-flex items-center justify-center w-12 h-12 bg-slate-600 rounded-full mb-3">
+                            <i class="bi bi-person-lines-fill text-xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-gray-800 mb-2">Contact Information</h3>
+                        <p class="text-base text-gray-700">
+                            Optional - helps us serve you better, regardless of your consent choice.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="full-name" class="block text-base font-semibold text-gray-800 mb-3">Full Name</label>
+                            <input type="text" id="full-name" name="fullName"
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300 text-lg">
+                        </div>
+                        <div>
+                            <label for="phone-number" class="block text-base font-semibold text-gray-800 mb-3">Phone Number</label>
+                            <input type="tel" id="phone-number" name="phoneNumber"
+                                   placeholder="(555) 123-4567"
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300 text-lg">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="email" class="block text-base font-semibold text-gray-800 mb-3">Email Address</label>
+                            <input type="email" id="email" name="email"
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-300 text-lg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legal Notice -->
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <div class="text-sm">
+                        <h4 class="font-medium text-gray-800 mb-2">Important Legal Information</h4>
+                        <div id="legal-text" class="text-gray-700 space-y-2">
+                            <!-- Legal text will be loaded from JSON -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" 
+                            class="bg-accent text-white px-12 py-4 rounded-xl font-bold hover:bg-orange-600 focus:ring-4 focus:ring-orange-200 transition-all duration-300 text-xl shadow-lg hover:shadow-xl transform hover:scale-105 submit-button"
+                            id="consent-submit-btn">
+                        💾 Save My Choice
+                    </button>
+                    <p class="text-sm text-gray-600 mt-3">
+                        Your choice will be saved securely via Formspree and can be updated anytime
+                    </p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact-questions" class="bg-slate-700 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 id="contact-title" class="text-3xl font-bold font-heading mb-4 text-gray-200">Loading...</h2>
+                <p id="contact-description" class="text-lg text-gray-400">Loading...</p>
+            </div>
+            
+            <div id="contact-methods" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Contact methods will be loaded from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="text-2xl font-bold font-heading">FTTG AutoTech</span>
+                    <p class="text-gray-400 mt-2">Professional Mobile Automotive Services</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400">© 2025 FTTG AutoTech. All rights reserved.</p>
+                    <div id="legal-info" class="text-sm text-gray-500 mt-2">
+                        <!-- Legal info will be loaded from JSON -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="fixed inset-0 bg-primary bg-opacity-90 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 text-center">
+            <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-accent mx-auto mb-4"></div>
+            <p class="text-lg font-semibold text-primary">Loading consent information...</p>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-primary bg-opacity-90 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 text-center max-w-md mx-4">
+            <div class="mb-4">
+                <i class="bi bi-check-circle-fill text-5xl text-green-500"></i>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-primary mb-2">Choice Saved!</h3>
+            <p class="text-text-secondary mb-6">Your communication consent choice has been successfully saved. Thank you for letting us know your preference.</p>
+            <button onclick="closeSuccessModal()" 
+                    class="bg-accent text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition duration-300">
+                Continue
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/twilio-service.js"></script>
+    <script src="js/consent-manager.js"></script>
+    <script src="js/formspree-consent.js"></script>
+    
+    <!-- Fallback Script -->
+    <script>
+        // Fallback to hide loading if script fails
+        setTimeout(function() {
+            const loadingOverlay = document.getElementById('loading-overlay');
+            if (loadingOverlay && loadingOverlay.style.display !== 'none') {
+                console.warn('Consent manager failed to load, hiding loading overlay');
+                loadingOverlay.style.display = 'none';
+                
+                // Set basic content if JSON failed to load with softer styling
+                const heroTitle = document.getElementById('hero-title');
+                const heroSubtitle = document.getElementById('hero-subtitle');
+                const heroDescription = document.getElementById('hero-description');
+                const contactTitle = document.getElementById('contact-title');
+                const contactDescription = document.getElementById('contact-description');
+                
+                if (heroTitle) {
+                    heroTitle.textContent = 'Communication Consent';
+                    heroTitle.className = 'text-4xl md:text-6xl font-bold font-heading mb-6 text-gray-200';
+                }
+                if (heroSubtitle) {
+                    heroSubtitle.textContent = 'Transparent. Secure. Respectful.';
+                    heroSubtitle.className = 'text-xl md:text-2xl mb-4 text-gray-400 font-heading';
+                }
+                if (heroDescription) {
+                    heroDescription.textContent = 'At FTTG AutoTech, we believe in clear communication and respecting your privacy preferences.';
+                    heroDescription.className = 'text-lg mb-8 text-gray-400 max-w-3xl mx-auto';
+                }
+                if (contactTitle) {
+                    contactTitle.textContent = 'Questions About Communication Consent?';
+                    contactTitle.className = 'text-3xl font-bold font-heading mb-4 text-gray-200';
+                }
+                if (contactDescription) {
+                    contactDescription.textContent = 'We\'re here to help clarify any questions about how we communicate with you.';
+                    contactDescription.className = 'text-lg text-gray-400';
+                }
+            }
+        }, 5000); // 5 second timeout
+    </script>
+</body>
+</html>
