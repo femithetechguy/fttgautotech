@@ -70,6 +70,15 @@
   line-height: 1.6;
 }
 
+/* Feature title responsive text handling */
+.feature-title .mobile-text {
+  display: none;
+}
+
+.feature-title .desktop-text {
+  display: inline;
+}
+
 /* Service Icons Mapping */
 .service-icon.oil-change::before { content: "🛢️"; }
 .service-icon.engine-diagnostics::before { content: "🔧"; }

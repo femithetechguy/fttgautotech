@@ -187,7 +187,7 @@ class FooterComponent {
                         <div class="space-y-2 text-gray-300">
                             <p class="flex items-center mb-2">
                                 <i class="bi bi-telephone mr-2"></i>
-                                <a href="tel:111-222-3333" class="hover:text-accent transition-colors">111-222-3333</a>
+                                <a href="tel:+185557843343" class="hover:text-accent transition-colors">+185557843343</a>
                             </p>
                             <p class="flex items-center mb-2">
                                 <i class="bi bi-envelope mr-2"></i>

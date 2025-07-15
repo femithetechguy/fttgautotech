@@ -155,6 +155,7 @@ class FTTGAutoTechApp {
                 let href = '#booking';
                 let buttonClass = index === 0 ? 'hero-btn-primary' : 'hero-btn-secondary';
                 let buttonText = cta;
+                let dataMobileAttribute = 'data-mobile-direct="true"';
                 
                 // Add icons for each button type
                 if (cta.toLowerCase().includes('book a service')) {
@@ -162,13 +163,18 @@ class FTTGAutoTechApp {
                 } else if (cta.toLowerCase().includes('get a free estimate')) {
                     buttonText = `<i class="bi bi-clipboard-check mr-2"></i>${cta}`;
                 } else if (cta.toLowerCase().includes('speak to a technician')) {
-                    href = `tel:${this.appData?.contact?.phone || '111-222-3333'}`;
+                    // Format phone number for tel: link (remove dashes, spaces, etc.)
+                    const phoneNumber = this.appData?.contact?.phone || '+185557843343';
+                    const cleanPhone = phoneNumber.replace(/[^0-9+]/g, '');
+                    href = `tel:+1${cleanPhone}`;
                     buttonClass = 'hero-btn-tertiary';
                     buttonText = `<i class="bi bi-telephone mr-2"></i>${cta}`;
+                    // Don't add mobile-direct attribute to phone links
+                    dataMobileAttribute = 'data-phone-link="true"';
                 }
                 
                 return `
-                    <a href="${href}" class="hero-btn ${buttonClass} inline-block px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:transform hover:scale-105" data-mobile-direct="true">
+                    <a href="${href}" class="hero-btn ${buttonClass} inline-block px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:transform hover:scale-105" ${dataMobileAttribute}>
                         ${buttonText}
                     </a>
                 `;
@@ -566,9 +572,18 @@ class FTTGAutoTechApp {
 
         // Mobile-specific hero button click handler
         document.addEventListener('click', (e) => {
-            if (e.target.matches('[data-mobile-direct="true"]') && this.isMobileDevice()) {
+            if (e.target.matches('[data-mobile-direct="true"]') && this.isMobileDevice() && !e.target.href.startsWith('tel:')) {
                 e.preventDefault();
                 this.scrollToBookingForm();
+            }
+        });
+
+        // Phone link handler for better mobile compatibility
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('[data-phone-link="true"]') || e.target.closest('[data-phone-link="true"]')) {
+                // Let the browser handle the tel: link naturally
+                // No preventDefault needed
+                console.log('Phone link clicked:', e.target.href || e.target.closest('a').href);
             }
         });
 

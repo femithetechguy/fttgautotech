@@ -145,7 +145,7 @@ Based on implementations:
 ## 📞 CONTACT INFORMATION TO VERIFY
 
 Please verify these details are correct:
-- Phone: 111-222-3333
+- Phone: +185557843343
 - Email: support@fttgautotech.com
 - Address: Atlanta, GA (need specific address)
 - Business hours: Mon-Fri 8AM-6PM, Sat 8AM-4PM

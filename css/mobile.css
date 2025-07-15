@@ -48,43 +48,46 @@
   transform: scale(1.1);
 }
 
-.mobile-call-button i {
-  font-size: 1.5rem;
-}
-
-/* Pulse animation for mobile call button */
 @keyframes pulse {
   0% {
-    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.4);
+    box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.7);
   }
-  50% {
-    box-shadow: 0 4px 20px rgba(255, 107, 0, 0.6);
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 107, 0, 0);
   }
   100% {
-    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.4);
+    box-shadow: 0 0 0 0 rgba(255, 107, 0, 0);
   }
 }
 
-/* Mobile Navigation Enhancements */
+/* Mobile navigation */
 @media (max-width: 768px) {
-  #navbar {
-    backdrop-filter: blur(10px);
+  .nav-menu {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     background-color: rgba(29, 42, 53, 0.95);
+    z-index: 9999;
+    padding: 1rem;
   }
   
-  .nav-link {
-    font-size: 1rem;
-    padding: 0.75rem 1rem;
-  }
-  
-  /* Mobile menu animation */
-  #mobile-menu {
-    transform: translateY(-100%);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  #mobile-menu.show {
-    transform: translateY(0);
+  .mobile-nav-link {
+    display: block;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -118,66 +121,165 @@
     padding: 1.5rem;
   }
   
-  .booking-form .grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .booking-submit {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 1rem;
   }
 }
 
-/* Mobile-specific hero adjustments */
+/* Mobile hero adjustments */
 @media (max-width: 768px) {
-  .hero-section {
-    min-height: 60vh;
-    padding: 2rem 1rem;
-  }
-  
   .hero-title {
-    font-size: 2.25rem;
-    line-height: 1.1;
+    font-size: 2.5rem !important;
+    line-height: 1.2;
   }
   
   .hero-subtitle {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.1rem !important;
+    margin-bottom: 2rem;
   }
   
   .hero-cta {
     flex-direction: column;
-    align-items: center;
     gap: 1rem;
   }
   
   .hero-btn {
     width: 100%;
-    max-width: 250px;
     text-align: center;
   }
 }
 
-/* Mobile contact section */
+/* HERO SECTION MOBILE FIXES */
 @media (max-width: 768px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  /* Hero CTA Container - Override Tailwind space-x-4 */
+  #hero-cta {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    /* Remove horizontal spacing from Tailwind */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   
-  .contact-info {
-    text-align: center;
+  #hero-cta > * {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   
-  .contact-item {
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: rgba(255, 107, 0, 0.05);
-    border-radius: 8px;
+  /* Hero buttons mobile styling */
+  .hero-btn {
+    display: block !important;
+    width: 280px !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    padding: 1rem 1.5rem !important;
+    font-size: 1rem !important;
+    border-radius: 0.75rem !important;
+    white-space: nowrap !important;
+  }
+  
+  /* Ensure buttons stack vertically */
+  .hero-btn + .hero-btn {
+    margin-top: 1rem !important;
   }
 }
 
-/* Sticky mobile header */
+@media (max-width: 480px) {
+  .hero-btn {
+    width: 260px !important;
+    padding: 0.875rem 1.25rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-btn {
+    width: 240px !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+/* BOOKING FEATURES MOBILE FIX - Force vertical layout */
 @media (max-width: 768px) {
-  #navbar.scrolled {
-    background-color: rgba(29, 42, 53, 0.98);
-    backdrop-filter: blur(10px);
+  .booking-features-container,
+  .booking-features .flex {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+  }
+  
+  /* Reset Tailwind horizontal spacing */
+  .booking-features-container > *,
+  .booking-features .flex > * {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .booking-feature-item,
+  .booking-features .flex > div {
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 0.75rem 1rem !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    margin: 0 !important;
+    min-width: 120px !important;
+    max-width: 180px !important;
+  }
+  
+  .booking-feature-item i,
+  .booking-features .flex > div i {
+    margin-right: 0 !important;
+    margin-bottom: 0.5rem !important;
+    font-size: 1.5rem !important;
+  }
+  
+  .booking-feature-item span,
+  .booking-features .flex > div span {
+    font-size: 0.9rem !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
+/* Smaller phones */
+@media (max-width: 480px) {
+  .booking-feature-item,
+  .booking-features .flex > div {
+    min-width: 100px !important;
+    max-width: 140px !important;
+    padding: 0.5rem 0.75rem !important;
+  }
+  
+  .booking-feature-item span,
+  .booking-features .flex > div span {
+    font-size: 0.8rem !important;
+  }
+  
+  .booking-feature-item i,
+  .booking-features .flex > div i {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* iPhone Pro Max and similar */
+@media (max-width: 430px) {
+  .booking-feature-item span,
+  .booking-features .flex > div span {
+    font-size: 0.75rem !important;
+  }
+  
+  .booking-feature-item,
+  .booking-features .flex > div {
+    max-width: 120px !important;
   }
 }
 
