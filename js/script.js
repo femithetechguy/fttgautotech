@@ -637,7 +637,7 @@ class FTTGAutoTechApp {
             });
             
             if (missingFields.length > 0) {
-                alert('Please fill in all required service location fields.');
+                window.app.showNotification('Please fill in all required service location fields.', 'error');
                 // Focus on first missing field
                 const firstMissingField = document.getElementById(missingFields[0]);
                 if (firstMissingField) {
@@ -668,7 +668,7 @@ class FTTGAutoTechApp {
             ? 'Thank you for your mobile service booking! We will contact you soon to confirm your appointment and service location.'
             : 'Thank you for your booking request! We will contact you soon.';
             
-        alert(successMessage);
+        window.app.showNotification(successMessage, 'success');
         form.reset();
         
         // Reset mobile service container if it was shown
@@ -1006,6 +1006,51 @@ class FTTGAutoTechApp {
     async reload() {
         console.log('Reloading app data...');
         await this.init();
+    }
+
+    // Notification System
+    showNotification(message, type = 'info') {
+        // Remove any existing notifications
+        const existingNotifications = document.querySelectorAll('.fttg-notification');
+        existingNotifications.forEach(notification => notification.remove());
+
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `fttg-notification fttg-notification-${type}`;
+        notification.innerHTML = `
+            <div class="fttg-notification-content">
+                <i class="bi ${this.getNotificationIcon(type)}"></i>
+                <span>${message}</span>
+                <button class="fttg-notification-close" onclick="this.parentElement.parentElement.remove()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+        `;
+
+        // Add to page
+        document.body.appendChild(notification);
+
+        // Auto-remove after 5 seconds
+        setTimeout(() => {
+            if (notification.parentElement) {
+                notification.classList.add('fttg-notification-fade-out');
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.remove();
+                    }
+                }, 300);
+            }
+        }, 5000);
+    }
+
+    getNotificationIcon(type) {
+        switch (type) {
+            case 'success': return 'bi-check-circle';
+            case 'error': return 'bi-exclamation-triangle';
+            case 'warning': return 'bi-exclamation-circle';
+            case 'info':
+            default: return 'bi-info-circle';
+        }
     }
 }
 
