@@ -2,7 +2,8 @@
   "business": {
     "name": "FTTG AutoTech",
     "tagline": "Precision. Passion. Performance.",
-    "subtitle": "Serving Metro Atlanta Since [Year]",
+    "subtitle": "Serving Metro Atlanta Since 1980",
+    "serviceTagline": "Serving Metro Atlanta Since 1980",
     "alternateTaglines": [
       "Atlanta's Trusted Mobile & In-Shop Mechanic."
     ]
@@ -10,7 +11,7 @@
   "contact": {
     "phone": "111-222-3333",
     "emails": {
-      "general": "contact@fttgautotech.com",
+      "general": "support@fttgautotech.com",
       "support": "support@fttgautotech.com"
     },
     "serviceArea": "Metro Atlanta"
@@ -217,6 +218,13 @@
       "ASE certified mechanics"
     ],
     "localFocus": "Metro Atlanta"
+  },
+  "serviceArea": {
+    "title": "Service Area",
+    "description": "We proudly serve the entire Metro Atlanta area",
+    "tagline": "Serving Metro Atlanta Since 1980",
+    "coverage": "Metro Atlanta",
+    "mapPlaceholder": "Google Map Integration Coming Soon"
   },
   "footer": {
     "createdBy": {

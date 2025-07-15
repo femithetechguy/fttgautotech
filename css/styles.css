@@ -538,3 +538,30 @@ body {
 .footer-social-links a:hover {
   animation: socialPulse 0.6s ease-in-out;
 }
+
+/* Navigation Home Elements */
+.nav-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-home-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-home-icon:hover {
+  transform: scale(1.1);
+  color: var(--accent-color);
+}
+
+.nav-logo {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+/* Enhanced Navigation Link Styles */
