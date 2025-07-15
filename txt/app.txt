@@ -18,7 +18,7 @@
 🧩 Recommended Layout Type
 
 ✅ Hybrid (SPA with a few dynamic routes) if:
-	•	You want scalability (e.g., booking system, gallery, blog)
+	•	You want scalability (e.g., booking system, blog)
 	•	Better SEO for local services (recommended!)
 
 🔧 Suggested Tech Stack (if building yourself or hiring dev):
@@ -38,7 +38,6 @@ Home	Welcome, tagline, and service highlights
 About Us	Mission, values, why FTTG AutoTech stands out
 Services	Auto repair, diagnostics, maintenance, mobile service, etc.
 Book an Appointment	Online form or link to Calendly-style scheduler
-Gallery	Before/after images, shop photos
 Testimonials	Customer reviews and video snippets
 Contact	Map (Google), form, phone, hours
 Contact

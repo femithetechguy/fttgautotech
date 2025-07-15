@@ -554,6 +554,15 @@ class FTTGAutoTechApp {
                 this.scrollToBookingForm();
             }
         });
+
+        // Mobile QR Code Popup toggle
+        const qrCodeBtn = document.getElementById('qr-code-btn');
+        if (qrCodeBtn) {
+            qrCodeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.toggleMobileQR();
+            });
+        }
     }
 
     toggleMobileMenu() {
@@ -1022,7 +1031,30 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
     }, 2000); // Check every 2 seconds
 }
 
-// Navigation active state management
-        this.setupNavigationActiveStates();
+// Mobile QR Code Popup Functions
+function toggleMobileQR() {
+    const popup = document.getElementById('mobile-qr-popup');
+    if (popup) {
+        if (popup.classList.contains('hidden')) {
+            popup.classList.remove('hidden');
+            // Prevent body scroll when popup is open
+            document.body.style.overflow = 'hidden';
+        } else {
+            popup.classList.add('hidden');
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+    }
+}
 
-        // ...existing code...
+// Close popup when clicking outside the content
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('mobile-qr-popup');
+    if (popup) {
+        popup.addEventListener('click', function(e) {
+            if (e.target === popup) {
+                toggleMobileQR();
+            }
+        });
+    }
+});

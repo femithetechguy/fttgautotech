@@ -93,11 +93,6 @@
       "url": "#booking"
     },
     {
-      "section": "Gallery",
-      "description": "Before/after images, shop photos",
-      "url": "#gallery"
-    },
-    {
       "section": "Testimonials",
       "description": "Customer reviews and video snippets",
       "url": "#testimonials"
@@ -237,6 +232,65 @@
     "tagline": "Serving Metro Atlanta Since 1980",
     "coverage": "Metro Atlanta",
     "mapPlaceholder": "Google Map Integration Coming Soon"
+  },
+  "formPopup": {
+    "titles": {
+      "review": "Review Your Submission",
+      "success": "Submission Successful!",
+      "error": "Submission Failed"
+    },
+    "messages": {
+      "review": {
+        "serviceBooking": "Service Booking Details",
+        "contactForm": "Contact Form Details",
+        "general": "Form Submission Details"
+      },
+      "success": {
+        "title": "Thank You!",
+        "serviceBooking": "Your service booking has been submitted successfully. We'll get back to you shortly.",
+        "contactForm": "Your message has been submitted successfully. We'll get back to you shortly.",
+        "general": "Your form has been submitted successfully. We'll get back to you shortly."
+      },
+      "error": {
+        "title": "Submission Failed",
+        "message": "We're sorry, but there was an error submitting your form. Please try again or contact us directly.",
+        "contactInfo": "Please try again or call us at"
+      },
+      "loading": {
+        "serviceBooking": "Submitting your service booking...",
+        "contactForm": "Submitting your message...",
+        "general": "Submitting your form..."
+      }
+    },
+    "buttons": {
+      "update": "Update",
+      "confirm": "Confirm & Submit",
+      "close": "Close",
+      "goBack": "Go Back",
+      "tryAgain": "Try Again"
+    },
+    "nextSteps": {
+      "title": "What's Next?",
+      "steps": [
+        "We'll review your submission",
+        "You'll receive a confirmation text/email shortly",
+        "Our team will contact you to discuss next steps"
+      ]
+    },
+    "fieldLabels": {
+      "name": "Full Name",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "car-make-model": "Car Make & Model",
+      "car-make": "Car Make",
+      "car-model": "Car Model",
+      "car-year": "Car Year",
+      "service-needed": "Service Needed",
+      "preferred-date": "Preferred Date",
+      "preferred-time": "Preferred Time",
+      "message": "Message",
+      "subject": "Subject"
+    }
   },
   "footer": {
     "createdBy": {
