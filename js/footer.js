@@ -92,7 +92,10 @@ class FooterComponent {
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Company Info -->
                     <div>
-                        <h3 class="text-xl font-heading font-bold mb-4">${business?.name || 'FTTG AutoTech'}</h3>
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="image/logo.png" alt="FTTG AutoTech Logo" class="h-10 w-10 object-contain">
+                            <h3 class="text-xl font-heading font-bold">${business?.name || 'FTTG AutoTech'}</h3>
+                        </div>
                         <p class="text-gray-300 mb-4">${business?.tagline || 'Precision. Passion. Performance.'}</p>
                         <p class="text-gray-400 text-sm">${business?.subtitle || 'Serving Metro Atlanta Since 1980'}</p>
                     </div>
