@@ -105,7 +105,7 @@ class FooterComponent {
                         </div>
                     </div>
                     
-                    <!-- Contact Info -->
+                    <!-- Contact Info & QR Code -->
                     <div>
                         <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
                         <div class="space-y-2 text-gray-300">
@@ -118,11 +118,24 @@ class FooterComponent {
                                     <i class="bi bi-envelope mr-2"></i>
                                     <a href="mailto:${contact.emails.general}" class="hover:text-accent transition-colors">${contact.emails.general}</a>
                                 </p>
-                                <p class="flex items-center">
+                                <p class="flex items-center mb-4">
                                     <i class="bi bi-geo-alt mr-2"></i>
                                     <span>${contact.serviceArea}</span>
                                 </p>
                             ` : ''}
+                            
+                            <!-- QR Code Section -->
+                            <div class="mt-4 p-3 bg-gray-700 rounded-lg">
+                                <div class="flex items-center gap-3">
+                                    <div class="bg-white p-2 rounded">
+                                        <img src="image/fttgautotech_qr.png" alt="QR Code" class="w-12 h-12">
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium text-white">Share Our Website</p>
+                                        <p class="text-xs text-gray-300">Scan to visit our site</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

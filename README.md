@@ -26,7 +26,6 @@ FTTG AutoTech is a professional automotive service company serving the Metro Atl
 - **Services**: Quick service grid with hover animations
 - **Why Choose Us**: Feature highlights with icons
 - **Booking Form**: Complete service booking with validation
-- **Gallery**: Before/after photos and shop images
 - **Testimonials**: Customer reviews and ratings
 - **Contact**: Multiple contact methods and service area info
 

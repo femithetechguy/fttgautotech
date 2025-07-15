@@ -9,7 +9,6 @@ class SEOManager {
             'contact': `Contact - ${this.baseTitle}`,
             'booking': `Book Service - ${this.baseTitle}`,
             'service-area': `Service Area - ${this.baseTitle}`,
-            'gallery': `Gallery - ${this.baseTitle}`,
             'testimonials': `Testimonials - ${this.baseTitle}`
         };
         this.init();
@@ -42,7 +41,7 @@ class SEOManager {
 
     // Track page sections for SEO analytics
     trackPageSections() {
-        const sections = ['hero', 'services', 'about', 'contact', 'booking', 'service-area', 'gallery', 'testimonials'];
+        const sections = ['hero', 'services', 'about', 'contact', 'booking', 'service-area', 'testimonials'];
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -81,7 +80,6 @@ class SEOManager {
             'contact': 'Contact FTTG AutoTech for professional auto repair services in Metro Atlanta. Call us or schedule your service appointment online.',
             'booking': 'Book your auto repair service with FTTG AutoTech. Convenient online scheduling for mobile service and shop repairs in Metro Atlanta.',
             'service-area': 'FTTG AutoTech proudly serves the entire Metro Atlanta area. Serving Metro Atlanta Since 1980 with professional auto repair and mobile services.',
-            'gallery': 'View our work gallery showcasing before and after photos of auto repairs, our professional shop, and satisfied customers in Metro Atlanta.',
             'testimonials': 'Read what our customers say about FTTG AutoTech. Real testimonials from satisfied clients across Metro Atlanta for our auto repair services.'
         };
 
@@ -186,7 +184,6 @@ class SEOManager {
             'contact': 'FTTG AutoTech service location and contact information',
             'booking': 'Customer booking auto repair service appointment',
             'service-area': 'Metro Atlanta service area map showing coverage zones',
-            'gallery': 'Before and after photos of professional auto repair work',
             'testimonials': 'Happy customers and their vehicles after quality service'
         };
 
