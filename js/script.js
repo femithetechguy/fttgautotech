@@ -227,8 +227,13 @@ class FTTGAutoTechApp {
         }
 
         if (bookingForm && booking.formFields) {
+            // Get form configuration from app data
+            const formConfig = this.appData?.techStack?.forms;
+            const formAction = formConfig?.endpoints?.booking?.url || formConfig?.endpoint || '#';
+            const formMethod = formConfig?.endpoints?.booking?.method || formConfig?.method || 'POST';
+            
             bookingForm.innerHTML = `
-                <form class="booking-form grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form class="booking-form grid grid-cols-1 md:grid-cols-2 gap-6" action="${formAction}" method="${formMethod}">
                     ${booking.formFields.map(field => {
                         const fieldName = field.toLowerCase().replace(/\s+/g, '-');
                         const placeholder = field.charAt(0).toUpperCase() + field.slice(1);

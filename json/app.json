@@ -56,7 +56,19 @@
     },
     "forms": {
       "current": "Formspree",
-      "future": "custom backend"
+      "future": "custom backend",
+      "endpoints": {
+        "booking": {
+          "url": "https://formspree.io/f/mnnzakep",
+          "method": "POST",
+          "purpose": "Service booking appointments"
+        },
+        "contact": {
+          "url": "https://formspree.io/f/xjkobqnw",
+          "method": "POST", 
+          "purpose": "General inquiries and messages"
+        }
+      }
     }
   },
   "navigation": [
