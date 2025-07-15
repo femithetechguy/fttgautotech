@@ -6,7 +6,7 @@ const structuredData = {
     "@type": "AutoRepair",
     "name": "FTTG AutoTech",
     "description": "Professional auto repair and mobile car service in Metro Atlanta with ASE certified technicians.",
-    "image": "https://fttgautotech.com/images/logo.png",
+    "image": "https://fttgautotech.com/image/logo.png",
     "url": "https://fttgautotech.com",
     "telephone": "111-222-3333",
     "email": "support@fttgautotech.com",
